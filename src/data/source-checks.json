@@ -1,0 +1,1498 @@
+{
+ "arxiv:0902.0271": {
+  "status": "ok",
+  "title": "Asymmetric numeral systems",
+  "year": 2009,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1207.0580": {
+  "status": "ok",
+  "title": "Improving neural networks by preventing co-adaptation of feature detectors",
+  "year": 2012,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1406.1078": {
+  "status": "ok",
+  "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1406.2294": {
+  "status": "ok",
+  "title": "A Fast, Minimal Memory, Consistent Hash Algorithm",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1409.0473": {
+  "status": "ok",
+  "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1409.1556": {
+  "status": "ok",
+  "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1409.3215": {
+  "status": "ok",
+  "title": "Sequence to Sequence Learning with Neural Networks",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1412.6980": {
+  "status": "ok",
+  "title": "Adam: A Method for Stochastic Optimization",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1502.03167": {
+  "status": "ok",
+  "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+  "year": 2015,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1508.04025": {
+  "status": "ok",
+  "title": "Effective Approaches to Attention-based Neural Machine Translation",
+  "year": 2015,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1512.03385": {
+  "status": "ok",
+  "title": "Deep Residual Learning for Image Recognition",
+  "year": 2015,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1607.06450": {
+  "status": "ok",
+  "title": "Layer Normalization",
+  "year": 2016,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1706.03762": {
+  "status": "ok",
+  "title": "Attention Is All You Need",
+  "year": 2017,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1711.05101": {
+  "status": "ok",
+  "title": "Decoupled Weight Decay Regularization",
+  "year": 2017,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1805.01407": {
+  "status": "ok",
+  "title": "Scrambled Linear Pseudorandom Number Generators",
+  "year": 2018,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1810.04805": {
+  "status": "ok",
+  "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+  "year": 2018,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:1911.02150": {
+  "status": "ok",
+  "title": "Fast Transformer Decoding: One Write-Head is All You Need",
+  "year": 2019,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2104.09864": {
+  "status": "ok",
+  "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+  "year": 2021,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2106.05123": {
+  "status": "ok",
+  "title": "Pattern-defeating Quicksort",
+  "year": 2021,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2106.09685": {
+  "status": "ok",
+  "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+  "year": 2021,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2205.14135": {
+  "status": "ok",
+  "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+  "year": 2022,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2305.13245": {
+  "status": "ok",
+  "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+  "year": 2023,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "arxiv:2307.08691": {
+  "status": "ok",
+  "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+  "year": 2023,
+  "checked": "2026-10-18",
+  "via": "arXiv"
+ },
+ "doi:10.1002/j.1538-7305.1948.tb01338.x": {
+  "status": "ok",
+  "title": "A Mathematical Theory of Communication",
+  "year": 1948,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1002/j.1538-7305.1957.tb01515.x": {
+  "status": "ok",
+  "title": "Shortest Connection Networks And Some Generalizations",
+  "year": 1957,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1002/nav.3800020109": {
+  "status": "ok",
+  "title": "The Hungarian method for the assignment problem",
+  "year": 1955,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1002/spe.4380100608": {
+  "status": "ok",
+  "title": "Practical fast searching in strings",
+  "year": 1980,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1002/spe.4380240306": {
+  "status": "ok",
+  "title": "A new data structure for cumulative frequency tables",
+  "year": 1994,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1006/jcss.1997.1504": {
+  "status": "ok",
+  "title": "A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting",
+  "year": 1997,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/0-387-34805-0_39": {
+  "status": "ok",
+  "title": "A Design Principle for Hash Functions",
+  "year": 2007,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1007/0-387-34805-0_40": {
+  "status": "ok",
+  "title": "One Way Hash Functions and DES",
+  "year": 1990,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/11502760_3": {
+  "status": "ok",
+  "title": "The Poly1305-AES Message-Authentication Code",
+  "year": 2005,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/11871842_29": {
+  "status": "ok",
+  "title": "Bandit Based Monte-Carlo Planning",
+  "year": 2006,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/3-540-08755-9_9": {
+  "status": "ok",
+  "title": "Notes on data base operating systems",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/3-540-38424-3_22": {
+  "status": "ok",
+  "title": "The MD4 Message Digest Algorithm",
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/3-540-39799-X_31": {
+  "status": "ok",
+  "title": "Use of Elliptic Curves in Cryptography",
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/3-540-57155-8_236": {
+  "status": "ok",
+  "title": "Balanced search trees made simple",
+  "year": 1993,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/3-540-58108-1_24": {
+  "status": "ok",
+  "title": "Description of a new variable-length key, 64-bit block cipher (Blowfish)",
+  "year": 1994,
+  "checked": "2026-10-18",
+  "via": "Springer"
+ },
+ "doi:10.1007/3-540-68697-5_1": {
+  "status": "ok",
+  "title": "Keying Hash Functions for Message Authentication",
+  "year": 1996,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/978-3-540-39658-1_55": {
+  "status": "ok",
+  "title": "Loglog Counting of Large Cardinalities",
+  "year": 2003,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/978-3-540-75538-8_7": {
+  "status": "ok",
+  "title": "Efficient Selectivity and Backup Operators in Monte-Carlo Tree Search",
+  "year": 2007,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/978-3-642-38980-1_8": {
+  "status": "ok",
+  "title": "BLAKE2: Simpler, Smaller, Fast as MD5",
+  "year": 2013,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00058655": {
+  "status": "ok",
+  "title": "Bagging predictors",
+  "year": 1996,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00116251": {
+  "status": "ok",
+  "title": "Induction of decision trees",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00196725": {
+  "status": "ok",
+  "title": "Efficient signature generation by smart cards",
+  "year": 1991,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00288683": {
+  "status": "ok",
+  "title": "Organization and maintenance of large ordered indexes",
+  "year": 1972,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00289509": {
+  "status": "ok",
+  "title": "Symmetric binary B-Trees: Data structure and maintenance algorithms",
+  "year": 1972,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00344251": {
+  "status": "ok",
+  "title": "Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position",
+  "year": 1980,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00940812": {
+  "status": "ok",
+  "title": "Thermodynamical approach to the traveling salesman problem: An efficient simulation algorithm",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF00994018": {
+  "status": "ok",
+  "title": "Support-vector networks",
+  "year": 1995,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF01206331": {
+  "status": "ok",
+  "title": "On-line construction of suffix trees",
+  "year": 1995,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF01386390": {
+  "status": "ok",
+  "title": "A note on two problems in connexion with graphs",
+  "year": 1959,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF01840357": {
+  "status": "ok",
+  "title": "A sweepline algorithm for Voronoi diagrams",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF01840439": {
+  "status": "ok",
+  "title": "The pairing heap: A new form of self-adjusting heap",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF01840446": {
+  "status": "ok",
+  "title": "AnO(ND) difference algorithm and its variations",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF02165411": {
+  "status": "ok",
+  "title": "Gaussian elimination is not optimal",
+  "year": 1969,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF02242355": {
+  "status": "ok",
+  "title": "Schnelle Multiplikation großer Zahlen",
+  "year": 1971,
+  "checked": "2026-10-18",
+  "via": "Semantic Scholar"
+ },
+ "doi:10.1007/BF02579150": {
+  "status": "ok",
+  "title": "A new polynomial-time algorithm for linear programming",
+  "year": 1984,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/BF02712873": {
+  "status": "ok",
+  "title": "Optimal output-sensitive convex hull algorithms in two and three dimensions",
+  "year": 1996,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1007/BFb0052343": {
+  "status": "ok",
+  "title": "The block cipher Square",
+  "year": 1997,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/s002360050048": {
+  "status": "ok",
+  "title": "The log-structured merge-tree (LSM-tree)",
+  "year": 1996,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1007/s13389-012-0027-1": {
+  "status": "ok",
+  "title": "High-speed high-security signatures",
+  "year": 2012,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0004-3702(85)90084-0": {
+  "status": "ok",
+  "title": "Depth-first iterative-deepening",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0010-4485(78)90110-0": {
+  "status": "ok",
+  "title": "Recursively generated B-spline surfaces on arbitrary topological meshes",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0020-0190(72)90045-2": {
+  "status": "ok",
+  "title": "An efficient algorith for determining the convex hull of a finite planar set",
+  "year": 1972,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1016/0020-0190(73)90020-3": {
+  "status": "ok",
+  "title": "On the identification of the convex hull of a finite set of points in the plane",
+  "year": 1973,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0020-0190(76)90071-5": {
+  "status": "ok",
+  "title": "An almost optimal algorithm for unbounded searching",
+  "year": 1976,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0020-0190(78)90021-2": {
+  "status": "ok",
+  "title": "Convex hull of a finite set of points in two dimensions",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0020-0190(79)90072-3": {
+  "status": "ok",
+  "title": "Another efficient algorithm for convex hulls in two dimensions",
+  "year": 1979,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0022-0000(85)90041-8": {
+  "status": "ok",
+  "title": "Probabilistic counting algorithms for data base applications",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0022-2836(70)90057-4": {
+  "status": "ok",
+  "title": "A general method applicable to the search for similarities in the amino acid sequence of two proteins",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0022-2836(81)90087-5": {
+  "status": "ok",
+  "title": "Identification of common molecular subsequences",
+  "year": 1981,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0041-5553(64)90137-5": {
+  "status": "ok",
+  "title": "Some methods of speeding up the convergence of iteration methods",
+  "year": 1964,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0304-3975(85)90157-4": {
+  "status": "ok",
+  "title": "The smallest automation recognizing the subwords of a text",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/0898-1221(81)90008-0": {
+  "status": "ok",
+  "title": "A strong-connectivity algorithm and its applications in data flow analysis",
+  "year": 1981,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0019-9958(60)90901-3": {
+  "status": "ok",
+  "title": "On the efficiency of a new method of dictionary construction",
+  "year": 1960,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0019-9958(65)90426-2": {
+  "status": "ok",
+  "title": "On the translation of languages from left to right",
+  "year": 1965,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0019-9958(67)80007-X": {
+  "status": "ok",
+  "title": "Recognition and parsing of context-free languages in time n3",
+  "year": 1967,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0022-0000(73)80033-9": {
+  "status": "ok",
+  "title": "Time bounds for selection",
+  "year": 1973,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0022-2836(05)80360-2": {
+  "status": "ok",
+  "title": "Basic local alignment search tool",
+  "year": 1990,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0169-7552(98)00110-X": {
+  "status": "ok",
+  "title": "The anatomy of a large-scale hypertextual Web search engine",
+  "year": 1998,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/S0747-7171(08)80013-2": {
+  "status": "ok",
+  "title": "Matrix multiplication via arithmetic progressions",
+  "year": 1990,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/j.jalgor.2003.12.001": {
+  "status": "ok",
+  "title": "An improved data stream summary: the count-min sketch and its applications",
+  "year": 2005,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1016/j.jalgor.2003.12.002": {
+  "status": "ok",
+  "title": "Cuckoo hashing",
+  "year": 2004,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1023/A:1010933404324": {
+  "status": "ok",
+  "title": "Random Forests",
+  "year": 2001,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1037/h0042519": {
+  "status": "ok",
+  "title": "The perceptron: A probabilistic model for information storage and organization in the brain.",
+  "year": 1958,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1037/h0071325": {
+  "status": "ok",
+  "title": "Analysis of a complex of statistical variables into principal components.",
+  "year": 1933,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1038/323533a0": {
+  "status": "ok",
+  "title": "Learning representations by back-propagating errors",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1038/scientificamerican0573-15": {
+  "status": "ok",
+  "title": "Cryptography and Computer Privacy",
+  "year": 1973,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1063/1.1699114": {
+  "status": "ok",
+  "title": "Equation of State Calculations by Fast Computing Machines",
+  "year": 1953,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1080/01621459.1949.10483310": {
+  "status": "ok",
+  "title": "The Monte Carlo Method",
+  "year": 1949,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1080/14786440109462720": {
+  "status": "ok",
+  "title": "LIII. On lines and planes of closest fit to systems of points in space",
+  "year": 1901,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1080/14786445008521796": {
+  "status": "ok",
+  "title": "XXII. Programming a computer for playing chess",
+  "year": 1950,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1090/S0002-9939-1956-0078686-7": {
+  "status": "ok",
+  "title": "On the shortest spanning subtree of a graph and the traveling salesman problem",
+  "year": 1956,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1090/S0025-5718-03-01501-1": {
+  "status": "ok",
+  "title": "Prime sieves using binary quadratic forms",
+  "year": 2003,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1090/S0025-5718-1965-0178586-1": {
+  "status": "ok",
+  "title": "An algorithm for the machine calculation of complex Fourier series",
+  "year": 1965,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1090/S0025-5718-1987-0866109-5": {
+  "status": "ok",
+  "title": "Elliptic curve cryptosystems",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1090/qam/102435": {
+  "status": "ok",
+  "title": "On a routing problem",
+  "year": 1958,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1093/biomet/57.1.97": {
+  "status": "ok",
+  "title": "Monte Carlo sampling methods using Markov chains and their applications",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1093/comjnl/24.2.162": {
+  "status": "ok",
+  "title": "Computing Dirichlet tessellations",
+  "year": 1981,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1093/comjnl/24.2.167": {
+  "status": "ok",
+  "title": "Computing the n-dimensional Delaunay tessellation with application to Voronoi polytopes",
+  "year": 1981,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1093/comjnl/3.2.84": {
+  "status": "ok",
+  "title": "Trees, Forests and Rearranging",
+  "year": 1960,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1109/34.709601": {
+  "status": "ok",
+  "title": "The random subspace method for constructing decision forests",
+  "year": 1998,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/56.2083": {
+  "status": "ok",
+  "title": "A fast procedure for computing the distance between complex objects in three-dimensional space",
+  "year": 1988,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/90.663936": {
+  "status": "ok",
+  "title": "Using name-based mappings to increase hit rates",
+  "year": 1998,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/90.851975": {
+  "status": "ok",
+  "title": "Summary cache: a scalable wide-area Web cache sharing protocol",
+  "year": 2000,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/JRPROC.1952.273898": {
+  "status": "ok",
+  "title": "A Method for the Construction of Minimum-Redundancy Codes",
+  "year": 1952,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1109/MC.1984.1659158": {
+  "status": "ok",
+  "title": "A Technique for High-Performance Data Compression",
+  "year": 1984,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/PROC.1968.6477": {
+  "status": "ok",
+  "title": "Discrete Fourier transforms when the number of data samples is prime",
+  "year": 1968,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/ROBOT.1994.351061": {
+  "status": "ok",
+  "title": "Optimal and efficient path planning for partially-known environments",
+  "year": 1994,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/SFCS.1978.3": {
+  "status": "ok",
+  "title": "A dichromatic framework for balanced trees",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/SFCS.1985.48": {
+  "status": "ok",
+  "title": "Robin hood hashing",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/SFCS.1989.63531": {
+  "status": "ok",
+  "title": "Randomized search trees",
+  "year": 1989,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1109/SFCS.2000.892127": {
+  "status": "ok",
+  "title": "Opportunistic data structures with applications",
+  "year": 2000,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/SWAT.1973.13": {
+  "status": "ok",
+  "title": "Linear pattern matching algorithms",
+  "year": 1973,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/T-C.1971.223313": {
+  "status": "ok",
+  "title": "Continuous Shading of Curved Surfaces",
+  "year": 1971,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TAU.1970.1162132": {
+  "status": "ok",
+  "title": "A linear filtering approach to the computation of discrete Fourier transform",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TC.1979.1675432": {
+  "status": "ok",
+  "title": "Algorithms for Reporting and Counting Geometric Intersections",
+  "year": 1979,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TIT.1967.1054010": {
+  "status": "ok",
+  "title": "Error bounds for convolutional codes and an asymptotically optimum decoding algorithm",
+  "year": 1967,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1109/TIT.1976.1055638": {
+  "status": "ok",
+  "title": "New directions in cryptography",
+  "year": 1976,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TIT.1977.1055714": {
+  "status": "ok",
+  "title": "A universal algorithm for sequential data compression",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TIT.1978.1055934": {
+  "status": "ok",
+  "title": "Compression of individual sequences via variable-rate coding",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TIT.1982.1056489": {
+  "status": "ok",
+  "title": "Least squares quantization in PCM",
+  "year": 1982,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TIT.1985.1057074": {
+  "status": "ok",
+  "title": "A public key cryptosystem and a signature scheme based on discrete logarithms",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TPAMI.1984.4767596": {
+  "status": "ok",
+  "title": "Stochastic Relaxation, Gibbs Distributions, and the Bayesian Restoration of Images",
+  "year": 1984,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1109/TSSC.1968.300136": {
+  "status": "ok",
+  "title": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths",
+  "year": 1968,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1111/j.2517-6161.1977.tb01600.x": {
+  "status": "ok",
+  "title": "Maximum Likelihood from Incomplete Data Via the EM Algorithm",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1126/science.220.4598.671": {
+  "status": "ok",
+  "title": "Optimization by Simulated Annealing",
+  "year": 1983,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1137/0201010": {
+  "status": "ok",
+  "title": "Depth-First Search and Linear Graph Algorithms",
+  "year": 1972,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1137/0206024": {
+  "status": "ok",
+  "title": "Fast Pattern Matching in Strings",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1137/0222058": {
+  "status": "ok",
+  "title": "Suffix Arrays: A New Method for On-Line String Searches",
+  "year": 1993,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1137/070711761": {
+  "status": "ok",
+  "title": "Faster Integer Multiplication",
+  "year": 2009,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/127719.122734": {
+  "status": "ok",
+  "title": "An efficient antialiasing technique",
+  "year": 1991,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/130385.130401": {
+  "status": "ok",
+  "title": "A training algorithm for optimal margin classifiers",
+  "year": 1992,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/1457838.1457895": {
+  "status": "ok",
+  "title": "File searching using variable length keys",
+  "year": 1959,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/1468075.1468082": {
+  "status": "ok",
+  "title": "Some techniques for shading machine renderings of solids",
+  "year": 1968,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/1468075.1468121": {
+  "status": "ok",
+  "title": "Sorting networks and their applications",
+  "year": 1968,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/15922.15902": {
+  "status": "ok",
+  "title": "The rendering equation",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/235815.235821": {
+  "status": "ok",
+  "title": "The quickhull algorithm for convex hulls",
+  "year": 1996,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/2452376.2452456": {
+  "status": "ok",
+  "title": "HyperLogLog in practice",
+  "year": 2013,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/258533.258660": {
+  "status": "ok",
+  "title": "Consistent hashing and random trees",
+  "year": 1997,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/2674005.2674994": {
+  "status": "ok",
+  "title": "Cuckoo Filter: Practically Better Than Bloom",
+  "year": 2014,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/272991.272995": {
+  "status": "ok",
+  "title": "Mersenne twister",
+  "year": 1998,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/279227.279229": {
+  "status": "ok",
+  "title": "The part-time parliament",
+  "year": 1998,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/28869.28874": {
+  "status": "ok",
+  "title": "Fibonacci heaps and their uses in improved network optimization algorithms",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/2939672.2939785": {
+  "status": "ok",
+  "title": "XGBoost",
+  "year": 2016,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/3065386": {
+  "status": "ok",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "year": 2017,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321105.321107": {
+  "status": "ok",
+  "title": "A Theorem on Boolean Matrices",
+  "year": 1962,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321105.321108": {
+  "status": "ok",
+  "title": "Some Combinatorial Properties of Certain Trees With Applications to Searching and Sorting",
+  "year": 1962,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321479.321481": {
+  "status": "ok",
+  "title": "PATRICIA—Practical Algorithm To Retrieve Information Coded in Alphanumeric",
+  "year": 1968,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/321694.321699": {
+  "status": "ok",
+  "title": "Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems",
+  "year": 1972,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321796.321811": {
+  "status": "ok",
+  "title": "The String-to-String Correction Problem",
+  "year": 1974,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321892.321896": {
+  "status": "ok",
+  "title": "A New Linear-Time \"On-Line\" Algorithm for Finding the Smallest Initial Palindrome of a String",
+  "year": 1975,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321941.321946": {
+  "status": "ok",
+  "title": "A Space-Economical Suffix Tree Construction Algorithm",
+  "year": 1976,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/321992.321993": {
+  "status": "ok",
+  "title": "Efficient Algorithms for Shortest Paths in Sparse Networks",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/322344.322346": {
+  "status": "ok",
+  "title": "Data compression via textual substitution",
+  "year": 1982,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/324133.324140": {
+  "status": "ok",
+  "title": "Authoritative sources in a hyperlinked environment",
+  "year": 1999,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/325165.325247": {
+  "status": "ok",
+  "title": "An image synthesizer",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/355759.355766": {
+  "status": "ok",
+  "title": "A New Convex Hull Algorithm for Planar Sets",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/358141.358147": {
+  "status": "ok",
+  "title": "A real-time garbage collector based on the lifetimes of objects",
+  "year": 1983,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/358876.358882": {
+  "status": "ok",
+  "title": "An improved illumination model for shaded display",
+  "year": 1980,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359340.359342": {
+  "status": "ok",
+  "title": "A method for obtaining digital signatures and public-key cryptosystems",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359423.359432": {
+  "status": "ok",
+  "title": "A linear algorithm for incremental digital display of circular arcs",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359460.359478": {
+  "status": "ok",
+  "title": "A data structure for manipulating priority queues",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359545.359563": {
+  "status": "ok",
+  "title": "Time, clocks, and the ordering of events in a distributed system",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359581.359603": {
+  "status": "ok",
+  "title": "A fast algorithm for computing longest common subsequences",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359642.359655": {
+  "status": "ok",
+  "title": "On-the-fly garbage collection",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/359657.359660": {
+  "status": "ok",
+  "title": "A linear sieve algorithm for finding prime numbers",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/359842.359859": {
+  "status": "ok",
+  "title": "A fast string searching algorithm",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/360825.360839": {
+  "status": "ok",
+  "title": "Illumination for computer generated pictures",
+  "year": 1975,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/360825.360855": {
+  "status": "ok",
+  "title": "Efficient string matching",
+  "year": 1975,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/361002.361007": {
+  "status": "ok",
+  "title": "Multidimensional binary search trees used for associative searching",
+  "year": 1975,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/362007.362035": {
+  "status": "ok",
+  "title": "An efficient context-free parsing algorithm",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/362686.362692": {
+  "status": "ok",
+  "title": "Space/time trade-offs in hash coding with allowable errors",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/362790.362798": {
+  "status": "ok",
+  "title": "A nonrecursive list compacting algorithm",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/363269.363280": {
+  "status": "ok",
+  "title": "A LISP garbage-collector for virtual-memory computer systems",
+  "year": 1969,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/364099.364331": {
+  "status": "ok",
+  "title": "An improved equivalence algorithm",
+  "year": 1964,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/366622.366644": {
+  "status": "ok",
+  "title": "Algorithm 64: Quicksort",
+  "year": 1961,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/367177.367199": {
+  "status": "ok",
+  "title": "Recursive functions of symbolic expressions and their computation by machine, Part I",
+  "year": 1960,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/367390.367400": {
+  "status": "ok",
+  "title": "Trie memory",
+  "year": 1960,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/367487.367501": {
+  "status": "ok",
+  "title": "A method for overlapping and erasure of lists",
+  "year": 1960,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/367766.368168": {
+  "status": "ok",
+  "title": "Algorithm 97: Shortest path",
+  "year": 1962,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/368370.368387": {
+  "status": "ok",
+  "title": "A high-speed sorting procedure",
+  "year": 1959,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/368996.369025": {
+  "status": "ok",
+  "title": "Topological sorting of large networks",
+  "year": 1962,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/37402.37406": {
+  "status": "ok",
+  "title": "Flocks, herds and schools: A distributed behavioral model",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/37402.37422": {
+  "status": "ok",
+  "title": "Marching cubes: A high resolution 3D surface construction algorithm",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/3828.3835": {
+  "status": "ok",
+  "title": "Self-adjusting binary search trees",
+  "year": 1985,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/383059.383071": {
+  "status": "ok",
+  "title": "Chord: A scalable peer-to-peer lookup service for internet applications",
+  "year": 2001,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/512274.3734138": {
+  "status": "ok",
+  "title": "Algorithm 232: Heapsort",
+  "year": 1964,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/563858.563893": {
+  "status": "ok",
+  "title": "Models of light reflection for computer synthesized pictures",
+  "year": 1977,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/566654.566636": {
+  "status": "ok",
+  "title": "Improving noise",
+  "year": 2002,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/5684.5688": {
+  "status": "ok",
+  "title": "A locally adaptive data compression scheme",
+  "year": 1986,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/602259.602266": {
+  "status": "ok",
+  "title": "R-trees",
+  "year": 1984,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/62546.62549": {
+  "status": "ok",
+  "title": "Viewstamped replication: a general primary copy",
+  "year": 1988,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/78973.78977": {
+  "status": "ok",
+  "title": "Skip lists: a probabilistic alternative to balanced trees",
+  "year": 1990,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/800020.808261": {
+  "status": "ok",
+  "title": "Generation Scavenging",
+  "year": 1984,
+  "checked": "2026-10-18",
+  "via": "OpenAlex"
+ },
+ "doi:10.1145/964967.801126": {
+  "status": "ok",
+  "title": "Pyramidal parametrics",
+  "year": 1983,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1145/965139.807402": {
+  "status": "ok",
+  "title": "Casting curved shadows on curved surfaces",
+  "year": 1978,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1147/rd.12.0130": {
+  "status": "ok",
+  "title": "Addressing for Random-Access Storage",
+  "year": 1957,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1147/rd.203.0198": {
+  "status": "ok",
+  "title": "Generalized Kraft Inequality and Arithmetic Coding",
+  "year": 1976,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1147/rd.312.0249": {
+  "status": "ok",
+  "title": "Efficient randomized pattern-matching algorithms",
+  "year": 1987,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1147/sj.41.0025": {
+  "status": "ok",
+  "title": "Algorithm for computer control of a digital plotter",
+  "year": 1965,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1162/neco.1989.1.4.541": {
+  "status": "ok",
+  "title": "Backpropagation Applied to Handwritten Zip Code Recognition",
+  "year": 1989,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1162/neco.1997.9.8.1735": {
+  "status": "ok",
+  "title": "Long Short-Term Memory",
+  "year": 1997,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1214/aoms/1177697196": {
+  "status": "ok",
+  "title": "A Maximization Technique Occurring in the Statistical Analysis of Probabilistic Functions of Markov Chains",
+  "year": 1970,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1214/aoms/1177729586": {
+  "status": "ok",
+  "title": "A Stochastic Approximation Method",
+  "year": 1951,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1214/aos/1013203451": {
+  "status": "ok",
+  "title": "Greedy function approximation: A gradient boosting machine.",
+  "year": 2001,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.1609/aaai.v25i1.7994": {
+  "status": "ok",
+  "title": "Online Graph Pruning for Pathfinding On Grid Maps",
+  "year": 2011,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.18637/jss.v008.i14": {
+  "status": "ok",
+  "title": "Xorshift RNGs",
+  "year": 2003,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.4007/annals.2021.193.2.4": {
+  "status": "ok",
+  "title": "Integer multiplication in time O(n log n)",
+  "year": 2021,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.4153/CJM-1956-045-5": {
+  "status": "ok",
+  "title": "Maximal Flow Through a Network",
+  "year": 1956,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.6028/NIST.FIPS.180-4": {
+  "status": "ok",
+  "title": "Secure hash standard",
+  "year": 2015,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.6028/NIST.FIPS.197": {
+  "status": "ok",
+  "title": "Advanced Encryption Standard (AES)",
+  "year": 2001,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ },
+ "doi:10.6028/NIST.FIPS.202": {
+  "status": "ok",
+  "title": "SHA-3 standard: permutation-based hash and extendable-output functions",
+  "year": 2015,
+  "checked": "2026-10-18",
+  "via": "Crossref"
+ }
+}

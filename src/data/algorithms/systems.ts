@@ -1,0 +1,52 @@
+import { field, o } from '../dsl';
+
+const a = field('systems');
+
+export default [
+  a('lamport-clock', 'Lamport Clock', '사건마다 단조 증가하는 논리 시계로 분산 시스템의 인과 순서(happened-before)와 일치하는 전순서를 만드는 기법.',
+    [o('lamport', 1978, 'Time, Clocks, and the Ordering of Events in a Distributed System', 'Communications of the ACM 21(7)', 'doi:10.1145/359545.359563')], { ko: '램포트 시계', aka: ['logical clock'] }),
+  a('vector-clock', 'Vector Clock', '프로세스별 카운터 벡터로 사건 간 인과 관계와 동시성을 정확히 판별하는 논리 시계.', [
+    o('fidge', 1988, 'Timestamps in Message-Passing Systems That Preserve the Partial Ordering', '11th Australian Computer Science Conference'),
+    o('mattern', 1988, 'Virtual Time and Global States of Distributed Systems', 'Workshop on Parallel and Distributed Algorithms'),
+  ], { ko: '벡터 시계' }),
+  a('viewstamped-replication', 'Viewstamped Replication', '주 복제본과 뷰 변경 프로토콜로 장애를 견디는 상태 기계 복제 방식.',
+    [o('oki,liskov', 1988, 'Viewstamped Replication: A New Primary Copy Method to Support Highly-Available Distributed Systems', 'ACM PODC 1988', 'doi:10.1145/62546.62549')]),
+  a('paxos', 'Paxos', '과반 정족수 두 단계 투표로 비잔틴이 아닌 장애 속에서도 하나의 값에 합의하는 프로토콜.',
+    [o('lamport', 1989, 'The Part-Time Parliament', 'DEC SRC Research Report 49 (1989) / ACM TOCS 16(2), 1998', 'doi:10.1145/279227.279229')], { ko: '팍소스' }),
+  a('raft', 'Raft', '리더 선출, 로그 복제, 안전성을 분리해 이해하기 쉽게 설계한 합의 알고리즘.',
+    [o('ongaro,ousterhout', 2014, 'In Search of an Understandable Consensus Algorithm', 'USENIX ATC 2014', 'url:https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro')], { ko: '래프트' }),
+  a('two-phase-commit', 'Two-Phase Commit', '조정자가 준비 투표를 모은 뒤 커밋·중단을 일괄 지시해 분산 트랜잭션의 원자성을 보장하는 프로토콜.',
+    [o('gray-jim', 1978, 'Notes on Data Base Operating Systems', 'Operating Systems: An Advanced Course (LNCS 60)', 'doi:10.1007/3-540-08755-9_9')], { ko: '2단계 커밋', aka: ['2PC'] }),
+  a('consistent-hashing', 'Consistent Hashing', '노드와 키를 같은 해시 원에 놓아 노드 증감 시 이동하는 키를 약 1/n로 줄이는 분산 해싱.',
+    [o('karger-david,lehman,leighton,panigrahy,levine,lewin', 1997, 'Consistent Hashing and Random Trees', 'ACM STOC 1997', 'doi:10.1145/258533.258660')], { ko: '일관 해싱' }),
+  a('rendezvous-hashing', 'Rendezvous Hashing', '키와 각 노드 쌍의 해시 가중치가 가장 큰 노드를 고르는 최고 무작위 가중치 해싱.',
+    [o('thaler,ravishankar', 1998, 'Using Name-Based Mappings to Increase Hit Rates', 'IEEE/ACM Transactions on Networking 6(1)', 'doi:10.1109/90.663936')], { aka: ['HRW hashing'] }),
+  a('jump-consistent-hash', 'Jump Consistent Hash', '저장 공간 없이 몇 줄의 산술로 키를 n개 버킷에 일관되게 배정하는 해시.',
+    [o('lamping,veach', 2014, 'A Fast, Minimal Memory, Consistent Hash Algorithm', 'arXiv', 'arxiv:1406.2294')]),
+  a('chord', 'Chord', '일관 해싱 원 위의 핑거 테이블로 O(log n) 홉 조회를 제공하는 분산 해시 테이블 프로토콜.',
+    [o('stoica,morris-robert,karger-david,kaashoek,balakrishnan', 2001, 'Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications', 'ACM SIGCOMM 2001', 'doi:10.1145/383059.383071')], { aka: ['DHT'] }),
+  a('mark-sweep', 'Mark–Sweep GC', '루트에서 도달 가능한 객체를 표시한 뒤 표시되지 않은 객체를 회수하는 추적 가비지 컬렉션.',
+    [o('mccarthy', 1960, 'Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I', 'Communications of the ACM 3(4)', 'doi:10.1145/367177.367199')], { ko: '표시-청소 GC' }),
+  a('reference-counting', 'Reference Counting', '객체마다 참조 수를 세어 0이 되는 즉시 회수하는 메모리 관리 기법.',
+    [o('collins', 1960, 'A Method for Overlapping and Erasure of Lists', 'Communications of the ACM 3(12)', 'doi:10.1145/367487.367501')], { ko: '참조 계수' }),
+  a('copying-gc', 'Semispace Copying GC', '살아 있는 객체를 다른 반공간으로 복사하며 압축해 단편화 없이 메모리를 회수하는 가비지 컬렉션.',
+    [o('fenichel,yochelson', 1969, 'A LISP Garbage-Collector for Virtual-Memory Computer Systems', 'Communications of the ACM 12(11)', 'doi:10.1145/363269.363280')], { ko: '복사 GC' }),
+  a('cheney', "Cheney's Algorithm", '새 반공간 자체를 너비 우선 탐색 큐로 써서 재귀·추가 스택 없이 복사 GC를 수행하는 알고리즘.',
+    [o('cheney', 1970, 'A Nonrecursive List Compacting Algorithm', 'Communications of the ACM 13(11)', 'doi:10.1145/362790.362798')]),
+  a('generational-gc', 'Generational GC', '대부분의 객체가 일찍 죽는다는 가설에 따라 젊은 세대를 자주, 늙은 세대를 드물게 수집하는 가비지 컬렉션.', [
+    o('lieberman,hewitt', 1983, 'A Real-Time Garbage Collector Based on the Lifetimes of Objects', 'Communications of the ACM 26(6)', 'doi:10.1145/358141.358147'),
+    o('ungar', 1984, 'Generation Scavenging: A Non-disruptive High Performance Storage Reclamation Algorithm', 'ACM SIGSOFT/SIGPLAN PSDE 1984', 'doi:10.1145/800020.808261'),
+  ], { ko: '세대별 GC' }),
+  a('tri-color-marking', 'Tri-color Marking', '객체를 흰·회·검 세 색으로 나누고 불변식을 지켜 프로그램과 동시에 표시를 진행하는 GC 기법.',
+    [o('dijkstra,lamport,martin-alain,scholten,steffens', 1978, 'On-the-Fly Garbage Collection: An Exercise in Cooperation', 'Communications of the ACM 21(11)', 'doi:10.1145/359642.359655')], { ko: '삼색 표시' }),
+  a('lr-parsing', 'LR Parsing', '스택과 상태 오토마톤으로 입력을 왼쪽부터 읽으며 최우단 유도의 역순으로 구문을 분석하는 상향식 파싱.',
+    [o('knuth', 1965, 'On the Translation of Languages from Left to Right', 'Information and Control 8(6)', 'doi:10.1016/S0019-9958(65)90426-2')], { ko: 'LR 파싱', aka: ['LR(k)'] }),
+  a('lalr', 'LALR Parsing', '같은 핵심을 가진 LR(1) 상태를 병합해 표 크기를 LR(0) 수준으로 줄인 파싱. yacc·bison이 사용한다.',
+    [o('deremer', 1969, 'Practical Translators for LR(k) Languages', 'MIT 박사 학위 논문')], { aka: ['LALR(1)', 'yacc'] }),
+  a('earley', 'Earley Parser', '상태 집합을 차트로 관리해 임의의 문맥 자유 문법을 O(n³), 비모호 문법은 O(n²)에 파싱하는 알고리즘.',
+    [o('earley', 1970, 'An Efficient Context-Free Parsing Algorithm', 'Communications of the ACM 13(2)', 'doi:10.1145/362007.362035')]),
+  a('cyk', 'CYK Algorithm', '촘스키 표준형 문법에 대해 부분 문자열별 생성 가능 비단말을 표로 채우는 O(n³) 파싱.', [
+    o('kasami', 1965, 'An Efficient Recognition and Syntax-Analysis Algorithm for Context-Free Languages', 'Air Force Cambridge Research Lab 기술 보고서'),
+    o('younger', 1967, 'Recognition and Parsing of Context-Free Languages in Time n³', 'Information and Control 10(2)', 'doi:10.1016/S0019-9958(67)80007-X'),
+  ], { aka: ['Cocke–Younger–Kasami'] }),
+];
