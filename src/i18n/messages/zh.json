@@ -22,7 +22,6 @@
   "notFound.title": "找不到该记录",
   "notFound.body": "该地址可能已变更，或记录尚未收录。请在算法列表中重新查找。",
   "notFound.cta": "查看算法列表",
-
   "common.all": "全部",
   "common.viewAll": "查看全部",
   "common.andMore": "等{n}个",
@@ -31,7 +30,6 @@
   "copy.done": "已复制",
   "year.unknown": "年份不详",
   "year.bce": "公元前{n}年",
-
   "field.sorting": "排序",
   "field.searching": "查找与哈希",
   "field.structures": "数据结构",
@@ -44,26 +42,22 @@
   "field.geometry": "计算几何",
   "field.graphics": "图形与游戏",
   "field.systems": "系统",
-
   "type.variant": "变体",
   "type.optimization": "优化",
   "type.generalization": "泛化",
   "type.composition": "组合",
   "type.port": "移植",
-
   "status.verified": "已验证",
   "status.estimated": "推测",
   "status.related": "相关",
   "statusHint.verified": "原始论文的引用、作者陈述或标准参考书中明确记载了该派生关系。",
   "statusHint.estimated": "仅有时间先后、结构相似等间接证据。",
   "statusHint.related": "处理的是同一问题，但没有派生证据，不计入荣誉分。",
-
   "evidence.citation": "引用",
   "evidence.author-statement": "作者陈述",
   "evidence.reference-work": "参考书",
   "evidence.structural": "结构分析",
   "evidence.temporal": "时间先后",
-
   "col.algorithm": "算法",
   "col.algorithms": "收录算法",
   "col.originator": "原始设计者",
@@ -75,14 +69,12 @@
   "col.rank": "排名",
   "col.name": "名称",
   "col.mainField": "主要领域",
-
   "author.unknown": "起源不详",
   "cite.noId": "无数字标识符",
   "cite.checked": "— {date} 已通过 {via} 核验书目信息",
   "credit.line": "直接派生 {d} · 下游谱系 {n} · 实现 {i}",
   "badge.title": "README 徽章",
   "edge.confidence": "置信度",
-
   "search.label": "搜索算法或贡献者",
   "search.placeholder": "例如：快速排序、Dijkstra、attention",
   "search.contributor": "贡献者",
@@ -90,14 +82,12 @@
   "search.title": "搜索",
   "search.summary": "“{q}”的搜索结果共 {n} 条",
   "search.none": "没有匹配的记录。请换个名称或作者再搜，或到列表中浏览。",
-
   "graph.aria": "谱系图：{n} 个算法，{m} 条关系",
   "graph.empty": "暂无可显示的谱系。",
   "graph.meta": "在一张图中查看所有已收录算法的派生关系。",
   "graph.lede": "线型表示证据强度：实线为已验证，虚线为推测，点线为相关。没有派生关系的 {n} 个算法未在图中显示。",
   "graph.showRelated": "同时显示相关（点线）关系",
   "graph.count": "正在显示 {n} 个算法、{m} 条关系",
-
   "home.title": "这个算法，最早是谁想出来的？",
   "home.lede": "CISS 以证据为依据，记录公开代码中算法的原始设计者与派生谱系。代码早已随处可见，但思想从何而来，依然值得记录下来。",
   "home.fact.algorithms": "算法",
@@ -120,7 +110,6 @@
   "home.p3.h": "有错就改",
   "home.p3.b": "目前 {p}% 的派生关系已有直接证据验证。其余均标注为“推测”，接受公开审核。",
   "home.cta": "如果发现归属有误，请告诉我们。",
-
   "algorithms.meta": "按领域收录的算法记录，附原始设计者与派生次数。",
   "algorithms.lede": "共 {n} 条记录。每条记录都同时给出最早出处与派生证据。",
   "algorithms.fieldFilter": "领域筛选",
@@ -129,7 +118,6 @@
   "algorithms.sort.year": "年份",
   "algorithms.sort.name": "名称",
   "algorithms.multiOrigin": "{n} 个独立起源",
-
   "algo.origin": "起源",
   "algo.multiOrigin": "{n} 个独立起源——荣誉按起源分摊",
   "algo.folklore": "这是一个流传已久的算法，最初的提出者尚无文献可考。如果您了解相关证据，请告诉我们。",
@@ -150,7 +138,6 @@
   "algo.rank": "第 {k} 名（共 {n} 个）",
   "algo.formula": "查看计算公式",
   "algo.originDocs": "起源文献",
-
   "authors.meta": "设计算法的个人与组织，以及他们的荣誉分。",
   "authors.lede": "共有 {n} 位（含组织）在算法起源中留名。仅采用公开出版物中刊载的署名。",
   "authors.letter": "姓名首字母",
@@ -170,7 +157,6 @@
   "author.requestFix": "申请更正此资料",
   "author.rank": "第 {k} 名（共 {n} 位）",
   "author.fieldRank": "第 {k} 名",
-
   "rankings.meta": "各领域贡献者荣誉排行，以及影响最深远的算法。",
   "rankings.fieldTitle": "{field}排行榜",
   "rankings.lede": "荣誉分根据直接派生、间接下游谱系和已确认的实现数量计算。证据较弱的关系权重较低，相关关系不计入。",
@@ -178,7 +164,6 @@
   "rankings.top": "前 {n} 名",
   "rankings.algorithms": "算法",
   "rankings.algorithmsAside": "按荣誉分排序",
-
   "scan.meta": "找出 GitHub、GitLab、Bitbucket 仓库或 npm、PyPI 包中使用的算法及其原作者。",
   "scan.lede": "输入仓库或包的地址，即可找出代码中用到的算法，并生成原作者列表。支持 GitHub、GitLab、Bitbucket 以及 npm、PyPI 包，也能分析 Unity、Godot、Unreal 等游戏引擎代码和着色器。",
   "scan.inputLabel": "仓库地址或包名",
@@ -217,7 +202,6 @@
   "scan.how.decl": "函数或类的声明名称与算法名称一致。",
   "scan.how.mention": "代码或注释中提及了算法名称。",
   "scan.how.score": "同一文件中的同类证据只计一次。取最强的 4 条证据用 noisy-OR 合并，结果不低于 0.5 时才会报告。",
-
   "claims.meta": "更正错误的归属，或附上证据登记本人的贡献。",
   "claims.lede": "在荣誉记录中，错误的归属会动摇信任。如果原作者另有其人、派生关系与事实不符，或您本人有未被记录的贡献，请附上证据告诉我们。所有请求及处理结果都会公开。",
   "claims.submit": "提交请求",
@@ -272,7 +256,6 @@
   "admin.failed": "处理失败，请稍后再试。",
   "admin.unauthorized": "管理员令牌无效。",
   "admin.disabled": "服务器未配置管理员令牌，审核功能已关闭。",
-
   "about.meta": "CISS 如何界定算法单元、派生关系、证据等级与荣誉分。",
   "about.lede": "凡涉及荣誉的记录，都应先说明统计了什么、如何统计。CISS 所用的定义和计算方法全部公开。",
   "about.unit.h": "什么算作一个算法",
@@ -319,7 +302,6 @@
   "about.privacy.h": "隐私与责任范围",
   "about.privacy.b": "贡献者姓名仅采用公开出版物和公开仓库中出现的署名。我们不收集提交邮箱；异议中的联系方式仅审核人员可见，不会通过公开 API 输出。经本人申请，可将其资料设为不公开。",
   "about.disclaimer": "CISS 是记录算法起源的服务，不判定是否抄袭、是否违反许可证，也不对法律纠纷作出判定。",
-
   "dev.meta": "CISS 公开 API、OpenAPI 规范、数据集导出与 README 徽章。",
   "dev.lede": "谱系数据可通过公开 API 和数据集直接获取。读取 API 无需认证，并允许跨域访问（CORS）。",
   "dev.endpoints": "端点",
@@ -344,5 +326,19 @@
   "dev.policy.cors": "读取 API 可从任意来源调用（CORS *）。",
   "dev.policy.rate": "仓库分析限制为每个 IP 每分钟约 3 次，提交请求限制为每分钟约 2 次。",
   "dev.policy.privacy": "异议中的联系方式仅作存储，不会通过任何 API 输出。",
-  "dev.policy.env": "自行部署时，可通过 GITHUB_TOKEN、GITLAB_TOKEN、BITBUCKET_TOKEN 提高托管平台的请求限额，并通过 CISS_ADMIN_TOKEN 启用审核功能。"
+  "dev.policy.env": "自行部署时，可通过 GITHUB_TOKEN、GITLAB_TOKEN、BITBUCKET_TOKEN 提高托管平台的请求限额，并通过 CISS_ADMIN_TOKEN 启用审核功能。",
+  "claims.github": "在此静态部署中，请求以 GitHub Issue 的形式提交。提交后会在新标签页打开已填写内容的 Issue 页面，处理结果以 Issue 状态公开（打开：待审核；带 accepted 标签关闭：采纳；其他关闭：驳回）。",
+  "claimForm.openIssue": "以 GitHub Issue 提交",
+  "claimForm.githubHint": "将以你的 GitHub 账号公开提交，请勿填写联系方式。",
+  "claimForm.opened": "已在新标签页打开预填的 GitHub Issue，请确认后提交。",
+  "claimForm.copied": "正文过长，已复制到剪贴板。请删除新标签页 Issue 正文中的占位符后粘贴。",
+  "claim.loadErrorStatic": "无法从 GitHub 加载请求列表。",
+  "claim.viewIssues": "在 GitHub Issues 查看",
+  "dev.static": "本站为静态部署。它不提供实时 API，而是提供构建时生成的 JSON 数据与 SVG 徽章。如需查询类 API（/api/search、/api/scan、/api/claims），请用 Docker 镜像以服务器模式运行。",
+  "dev.files": "静态文件",
+  "dev.sf.algorithms": "全部算法及荣誉指标。",
+  "dev.sf.search": "浏览器内搜索使用的分语言索引（ko、en、ja、zh）。",
+  "dev.sf.csv": "按表导出的 CSV：algorithms、origins、derivations、authors、implementations。",
+  "dev.sf.badge": "README 用 SVG 徽章。另有 /badge/author/{slug}.svg。",
+  "dev.policy.static": "贡献主张与异议通过 GitHub Issue 公开提交，请勿填写联系方式。"
 }

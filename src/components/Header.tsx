@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useI18n } from '@/i18n/client';
+import { withBase } from '@/lib/runtime';
 import { LOCALE_COOKIE, LOCALE_NAME, LOCALES, type Locale } from '@/i18n/config';
 import type { MsgKey } from '@/i18n';
 
@@ -63,7 +64,7 @@ function LangSwitch() {
       <summary aria-label={t('lang.label')}>{LOCALE_NAME[locale]}</summary>
       <ul>
         {LOCALES.map((l) => (
-          <li key={l}><a href={`/${l}${rest}`} hrefLang={l} lang={l} aria-current={l === locale} onClick={() => pick(l)}>{LOCALE_NAME[l]}</a></li>
+          <li key={l}><a href={withBase(`/${l}${rest}`)} hrefLang={l} lang={l} aria-current={l === locale} onClick={() => pick(l)}>{LOCALE_NAME[l]}</a></li>
         ))}
       </ul>
     </details>

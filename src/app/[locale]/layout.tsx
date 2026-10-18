@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import Header from '@/components/Header';
-import { getT, messages } from '@/i18n';
+import { clientMessages, getT } from '@/i18n';
 import { I18nProvider } from '@/i18n/client';
 import { HTML_LANG, isLocale, LOCALES, type Locale } from '@/i18n/config';
 import { lp } from '@/i18n/format';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
-import { SITE_URL } from '@/lib/site';
+import { SITE_ORIGIN } from '@/lib/site';
 import '../globals.css';
 
 const FONTS: Record<Locale, string> = {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   const t = getT(locale);
   return {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(SITE_ORIGIN),
     title: { default: t('meta.title'), template: '%s — CISS' },
     description: t('meta.description'),
     ...pageMeta(locale, ''),
@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?${FONTS[locale]}&display=swap`} />
       </head>
       <body>
-        <I18nProvider locale={locale} messages={messages(locale)}>
+        <I18nProvider locale={locale} messages={clientMessages(locale)}>
           <a className="skip" href="#main">{t('a11y.skip')}</a>
           <Header />
           <main id="main">{children}</main>

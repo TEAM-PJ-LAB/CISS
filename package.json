@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "CISS_STATIC=1 next build && tsx --tsconfig tsconfig.json scripts/export-static.mts out",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

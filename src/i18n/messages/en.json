@@ -22,7 +22,6 @@
   "notFound.title": "Record not found",
   "notFound.body": "The address may have changed, or this record hasn’t been added yet. Try finding it in the algorithm list.",
   "notFound.cta": "Browse algorithms",
-
   "common.all": "All",
   "common.viewAll": "View all",
   "common.andMore": "+{n} more",
@@ -31,7 +30,6 @@
   "copy.done": "Copied",
   "year.unknown": "Year unknown",
   "year.bce": "{n} BCE",
-
   "field.sorting": "Sorting",
   "field.searching": "Searching & hashing",
   "field.structures": "Data structures",
@@ -44,26 +42,22 @@
   "field.geometry": "Geometry",
   "field.graphics": "Graphics & games",
   "field.systems": "Systems",
-
   "type.variant": "Variant",
   "type.optimization": "Optimization",
   "type.generalization": "Generalization",
   "type.composition": "Composition",
   "type.port": "Port",
-
   "status.verified": "Verified",
   "status.estimated": "Estimated",
   "status.related": "Related",
   "statusHint.verified": "The derivation is stated explicitly in the original paper’s citations, an author statement, or a standard reference work.",
   "statusHint.estimated": "Only indirect evidence exists, such as chronology or structural similarity.",
   "statusHint.related": "Addresses the same problem, but there’s no evidence of derivation. Not counted toward credit scores.",
-
   "evidence.citation": "Citation",
   "evidence.author-statement": "Author statement",
   "evidence.reference-work": "Reference work",
   "evidence.structural": "Structural analysis",
   "evidence.temporal": "Chronology",
-
   "col.algorithm": "Algorithm",
   "col.algorithms": "Recorded algorithms",
   "col.originator": "Originator",
@@ -75,14 +69,12 @@
   "col.rank": "Rank",
   "col.name": "Name",
   "col.mainField": "Primary field",
-
   "author.unknown": "Origin unknown",
   "cite.noId": "No digital identifier",
   "cite.checked": "— checked against {via}, {date}",
   "credit.line": "Direct {d} · Descendants {n} · Implementations {i}",
   "badge.title": "README badge",
   "edge.confidence": "Confidence",
-
   "search.label": "Search algorithms or contributors",
   "search.placeholder": "Try Quicksort, Dijkstra, or attention",
   "search.contributor": "Contributor",
@@ -90,14 +82,12 @@
   "search.title": "Search",
   "search.summary": "Results for “{q}”: {n}",
   "search.none": "No matching records. Try a different name or author, or browse the list.",
-
   "graph.aria": "Lineage graph: {n} algorithms, {m} relations",
   "graph.empty": "No lineage to show.",
   "graph.meta": "See the derivations among all registered algorithms on a single map.",
   "graph.lede": "Line style shows the strength of evidence: solid for Verified, dashed for Estimated, dotted for Related. Algorithms with no derivations are left off the map ({n} hidden).",
   "graph.showRelated": "Also show Related (dotted) relations",
   "graph.count": "Showing {n} algorithms and {m} relations",
-
   "home.title": "Who first came up with this algorithm?",
   "home.lede": "CISS records the original authors and lineage of the algorithms in public code, with evidence. Code is everywhere now, but where an idea came from is still worth recording.",
   "home.fact.algorithms": "Algorithms",
@@ -120,7 +110,6 @@
   "home.p3.h": "When we’re wrong, we fix it",
   "home.p3.b": "{p}% of current derivations are verified by direct evidence. The rest are marked “Estimated” and open to public review.",
   "home.cta": "Found an incorrect attribution? Let us know.",
-
   "algorithms.meta": "Algorithm records by field, with their original authors and derivation counts.",
   "algorithms.lede": "{n} records. Each one shows its earliest source and the evidence for its derivations.",
   "algorithms.fieldFilter": "Filter by field",
@@ -129,7 +118,6 @@
   "algorithms.sort.year": "Year",
   "algorithms.sort.name": "Name",
   "algorithms.multiOrigin": "{n} independent origins",
-
   "algo.origin": "Origin",
   "algo.multiOrigin": "{n} independent origins — credit is split among them",
   "algo.folklore": "A folklore algorithm whose original inventor isn’t documented. If you know of evidence, let us know.",
@@ -150,7 +138,6 @@
   "algo.rank": "#{k} of {n}",
   "algo.formula": "View formula",
   "algo.originDocs": "Origin sources",
-
   "authors.meta": "The people and organizations who designed algorithms, and their credit scores.",
   "authors.lede": "{n} people and organizations are named in algorithm origins. We use only names that appear in public publications.",
   "authors.letter": "Filter by initial",
@@ -170,7 +157,6 @@
   "author.requestFix": "Request a correction to this profile",
   "author.rank": "#{k} of {n}",
   "author.fieldRank": "#{k}",
-
   "rankings.meta": "Contributor credit rankings by field, and the most far-reaching algorithms.",
   "rankings.fieldTitle": "{field} rankings",
   "rankings.lede": "Credit scores count direct derivations, indirect descendants, and verified implementations. Weakly evidenced relations count for less, and related ones don’t count at all.",
@@ -178,7 +164,6 @@
   "rankings.top": "Top {n}",
   "rankings.algorithms": "Algorithms",
   "rankings.algorithmsAside": "By credit score",
-
   "scan.meta": "Find the algorithms used in a GitHub, GitLab, or Bitbucket repository or an npm or PyPI package, along with their original authors.",
   "scan.lede": "Enter a repository or package address and we’ll find the algorithms used in the code and list their original authors. Supports GitHub, GitLab, and Bitbucket repositories and npm and PyPI packages, including game-engine code and shaders for Unity, Godot, and Unreal.",
   "scan.inputLabel": "Repository URL or package",
@@ -217,7 +202,6 @@
   "scan.how.decl": "A function or class is declared with a name that matches the algorithm’s name.",
   "scan.how.mention": "The algorithm’s name is mentioned in code or comments.",
   "scan.how.score": "Evidence of the same kind in the same file counts once. The four strongest pieces of evidence are combined with noisy-OR, and only results of 0.5 or higher are reported.",
-
   "claims.meta": "Correct a wrong attribution or register your own contribution, with evidence.",
   "claims.lede": "In a record of credit, wrong attributions erode trust. If the original author is wrong, a derivation doesn’t match the facts, or you have a contribution that isn’t on record, tell us and include evidence. Every request and its outcome are public.",
   "claims.submit": "Submit a request",
@@ -272,7 +256,6 @@
   "admin.failed": "Couldn’t process this request. Try again shortly.",
   "admin.unauthorized": "Invalid admin token.",
   "admin.disabled": "Review is disabled because no admin token is set on the server.",
-
   "about.meta": "How CISS defines an algorithm, derivations, evidence grades, and credit scores.",
   "about.lede": "A record that assigns credit has to say up front what it counts and how. Here are all of the definitions and calculations CISS uses.",
   "about.unit.h": "What counts as one algorithm",
@@ -319,7 +302,6 @@
   "about.privacy.h": "Privacy and scope",
   "about.privacy.b": "Contributor names come only from public publications and public repositories. We don’t collect commit emails, and contact details from disputes are seen only by reviewers and never exposed through the public API. We make a profile private at its owner’s request.",
   "about.disclaimer": "CISS records origins. It does not rule on plagiarism, license violations, or legal disputes.",
-
   "dev.meta": "CISS public API, OpenAPI spec, dataset dumps, and README badges.",
   "dev.lede": "All lineage data is available as-is through the public API and datasets. The read API requires no authentication and allows CORS.",
   "dev.endpoints": "Endpoints",
@@ -344,5 +326,19 @@
   "dev.policy.cors": "The read API can be called from any origin (CORS *).",
   "dev.policy.rate": "Repo scans are limited to about 3 per minute per IP, and request submissions to about 2 per minute.",
   "dev.policy.privacy": "Contact details from disputes are stored but never exposed through any API.",
-  "dev.policy.env": "When self-hosting, raise host request limits with GITHUB_TOKEN, GITLAB_TOKEN, and BITBUCKET_TOKEN, and enable review with CISS_ADMIN_TOKEN."
+  "dev.policy.env": "When self-hosting, raise host request limits with GITHUB_TOKEN, GITLAB_TOKEN, and BITBUCKET_TOKEN, and enable review with CISS_ADMIN_TOKEN.",
+  "claims.github": "On this static deployment, requests are filed as GitHub issues. Submitting opens a pre-filled issue in a new tab; outcomes are public as the issue state (open: pending, closed with the accepted label: accepted, otherwise closed: rejected).",
+  "claimForm.openIssue": "Submit as GitHub issue",
+  "claimForm.githubHint": "Filed publicly under your GitHub account. Do not include contact details.",
+  "claimForm.opened": "Opened a pre-filled GitHub issue in a new tab. Review it and submit.",
+  "claimForm.copied": "The text was too long for a link, so it was copied to your clipboard. Replace the placeholder in the new issue and paste.",
+  "claim.loadErrorStatic": "Could not load requests from GitHub.",
+  "claim.viewIssues": "View on GitHub Issues",
+  "dev.static": "This is the static deployment. Instead of a live API it serves JSON dumps and SVG badges generated at build time. For the query APIs (/api/search, /api/scan, /api/claims), run the Docker image in server mode.",
+  "dev.files": "Static files",
+  "dev.sf.algorithms": "All algorithms with credit metrics.",
+  "dev.sf.search": "Per-locale index used by in-browser search (ko, en, ja, zh).",
+  "dev.sf.csv": "Per-table CSV: algorithms, origins, derivations, authors, implementations.",
+  "dev.sf.badge": "SVG badge for READMEs. /badge/author/{slug}.svg is also available.",
+  "dev.policy.static": "Claims and disputes are filed publicly as GitHub issues, so do not include contact details."
 }

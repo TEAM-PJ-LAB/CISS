@@ -6,7 +6,7 @@ import { useI18n } from '@/i18n/client';
 
 const KEY = 'ciss-admin-token';
 
-export default function AdminReview({ id }: { id: number }) {
+export default function AdminReview({ id, onDone }: { id: number; onDone?: () => void }) {
   const router = useRouter();
   const { t } = useI18n();
   const [token, setToken] = useState('');
@@ -22,7 +22,7 @@ export default function AdminReview({ id }: { id: number }) {
       body: JSON.stringify({ status, resolution: note }),
     });
     const data = await res.json().catch(() => ({}));
-    if (res.ok) router.refresh();
+    if (res.ok) { if (onDone) onDone(); else router.refresh(); }
     else setMsg(res.status === 401 ? t('admin.unauthorized') : res.status === 503 ? t('admin.disabled') : (data.error ?? t('admin.failed')));
   }
 

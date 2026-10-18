@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { ALGORITHMS } from '@/data/algorithms';
-import { content, formatYear, getT } from '@/i18n';
+import { content, formatYear, getT, isClientKey } from '@/i18n';
 import { contentCatalog } from '@/i18n/catalog';
 import { LOCALES, negotiate } from '@/i18n/config';
 import en from '@/i18n/content/en.json';
@@ -30,6 +30,13 @@ describe('UI messages', () => {
     const src = walk('src').filter((f) => /\.tsx?$/.test(f)).map((f) => readFileSync(f, 'utf8')).join('\n');
     const used = [...src.matchAll(/\bt\(\s*'([\w.-]+)'/g)].map((m) => m[1]);
     expect(used.filter((k) => !(k in ko))).toEqual([]);
+  });
+  it('client components only use keys shipped to the client', () => {
+    const client = walk('src').filter((f) => /\.tsx?$/.test(f)).map((f) => readFileSync(f, 'utf8')).filter((s) => s.startsWith("'use client'")).join('\n');
+    const literal = [...client.matchAll(/'([a-z][a-zA-Z]*\.[a-zA-Z][\w.]*)'/g)].map((m) => m[1]).filter((k) => k in ko);
+    const prefixes = [...client.matchAll(/t\(`([\w.]+)\$\{/g)].map((m) => m[1]);
+    expect(literal.length).toBeGreaterThan(50);
+    expect([...literal, ...prefixes].filter((k) => !isClientKey(k))).toEqual([]);
   });
 });
 

@@ -11,6 +11,7 @@ import { LOCALES, type Locale } from '@/i18n/config';
 import { ctx } from '@/lib/ctx';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
+import { badgePath, withBase } from '@/lib/runtime';
 import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -35,7 +36,7 @@ export default async function AuthorPage({ params }: Props) {
   const coauthors = [...new Set(ac.algorithms.flatMap((y) => r.algo.get(y.slug)!.origins
     .filter((o) => o.authors.includes(slug)).flatMap((o) => o.authors)))].filter((s) => s !== slug);
   const derived = ac.algorithms.flatMap((y) => r.out.get(y.slug)!.filter((e) => e.status !== 'related'));
-  const badge = `[![CISS credit](${SITE_URL}/api/badge/author/${slug})](${SITE_URL}/${locale}/authors/${slug})`;
+  const badge = `[![CISS credit](${SITE_URL}${badgePath('author', slug)})](${SITE_URL}/${locale}/authors/${slug})`;
 
   return (
     <div className="wrap page record">
@@ -105,7 +106,7 @@ export default async function AuthorPage({ params }: Props) {
         <div className="badge-box">
           <p className="side-l">{t('badge.title')}</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="badge-img" src={`/api/badge/author/${slug}`} alt={`CISS credit: ${ac.author.name}`} height={20} />
+          <img className="badge-img" src={withBase(badgePath('author', slug))} alt={`CISS credit: ${ac.author.name}`} height={20} />
           <CopyField label="Markdown" value={badge} />
         </div>
       </aside>

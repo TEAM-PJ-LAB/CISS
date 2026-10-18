@@ -1,32 +1,19 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useId, useState } from 'react';
 import { useI18n } from '@/i18n/client';
-import type { Hit } from '@/lib/search';
+import type { Hit } from '@/lib/search-core';
+import { useSearch } from '@/lib/use-search';
 
 export default function SearchBox({ initial = '', size = 'md' }: { initial?: string; size?: 'md' | 'lg' }) {
   const router = useRouter();
   const { t, href, locale } = useI18n();
   const id = useId();
   const [q, setQ] = useState(initial);
-  const [hits, setHits] = useState<Hit[]>([]);
   const [open, setOpen] = useState(false);
   const [sel, setSel] = useState(-1);
-  const ctl = useRef<AbortController | null>(null);
-
-  useEffect(() => {
-    if (!q.trim()) { setHits([]); return; }
-    const timer = setTimeout(async () => {
-      ctl.current?.abort();
-      ctl.current = new AbortController();
-      try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&limit=8&locale=${locale}`, { signal: ctl.current.signal });
-        if (res.ok) { setHits((await res.json()).hits); setSel(-1); }
-      } catch { /* superseded */ }
-    }, 120);
-    return () => clearTimeout(timer);
-  }, [q, locale]);
+  const { hits } = useSearch(q, locale, 8);
 
   const to = (h: Hit) => href(`/${h.kind === 'author' ? 'authors' : 'algorithms'}/${h.slug}`);
   const go = (path: string) => { setOpen(false); router.push(path); };
@@ -40,7 +27,7 @@ export default function SearchBox({ initial = '', size = 'md' }: { initial?: str
         placeholder={t('search.placeholder')}
         role="combobox" aria-autocomplete="list" aria-expanded={open && hits.length > 0} aria-controls={`${id}-list`}
         aria-activedescendant={sel >= 0 ? `${id}-${sel}` : undefined}
-        onChange={(e) => { setQ(e.target.value); setOpen(true); }}
+        onChange={(e) => { setQ(e.target.value); setOpen(true); setSel(-1); }}
         onFocus={() => setOpen(true)} onBlur={() => setTimeout(() => setOpen(false), 150)}
         onKeyDown={(e) => {
           if (e.key === 'ArrowDown') { e.preventDefault(); setSel((s) => Math.min(s + 1, hits.length - 1)); }

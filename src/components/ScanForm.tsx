@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useCallback, useEffect, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useI18n } from '@/i18n/client';
 import type { MsgKey } from '@/i18n';
+import { STATIC } from '@/lib/runtime';
 import type { ScanReport } from '@/lib/scan';
+import { withQuery } from './QueryViews';
 
 type ReportFinding = ScanReport['findings'][number];
 
@@ -15,26 +17,38 @@ type Enriched = Omit<ScanReport, 'findings'> & {
 
 const EXAMPLES = ['https://github.com/mxgmn/WaveFunctionCollapse', 'npm:fflate', 'pypi:networkx', 'https://gitlab.com/inkscape/inkscape'];
 
-export default function ScanForm({ initial }: { initial?: string }) {
-  const { t, href } = useI18n();
-  const [url, setUrl] = useState(initial ?? '');
+export default withQuery(function ScanForm({ q }: { q: URLSearchParams }) {
+  const { t, href, locale } = useI18n();
+  const initial = q.get('url') ?? '';
+  const last = useRef('');
+  const [url, setUrl] = useState(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<Enriched | null>(null);
 
   const run = useCallback(async (target: string, fresh = false) => {
-    if (!target.trim()) return;
+    const tg = target.trim();
+    if (!tg) return;
+    last.current = tg;
     setBusy(true); setError(null); setReport(null);
     try {
-      const res = await fetch(`/api/scan?url=${encodeURIComponent(target.trim())}${fresh ? '&fresh=1' : ''}`);
-      const data = await res.json();
-      if (!res.ok) { setError(t(`scan.err.${data.error ?? 'upstream'}` as MsgKey)); return; }
-      setReport(data);
-      const u = new URL(window.location.href); u.searchParams.set('url', target.trim()); window.history.replaceState(null, '', u);
-    } catch { setError(t('scan.err.network')); } finally { setBusy(false); }
-  }, [t]);
+      if (STATIC) {
+        const { scanInBrowser } = await import('@/lib/scan-client');
+        setReport(await scanInBrowser(tg, locale));
+      } else {
+        const res = await fetch(`/api/scan?url=${encodeURIComponent(tg)}${fresh ? '&fresh=1' : ''}`);
+        const data = await res.json();
+        if (!res.ok) { setError(t(`scan.err.${data.error ?? 'upstream'}` as MsgKey)); return; }
+        setReport(data);
+      }
+      const u = new URL(window.location.href); u.searchParams.set('url', tg); window.history.replaceState(window.history.state, '', u);
+    } catch (e) {
+      const code = (e as { code?: string }).code;
+      setError(t(code ? (`scan.err.${code}` as MsgKey) : 'scan.err.network'));
+    } finally { setBusy(false); }
+  }, [t, locale]);
 
-  useEffect(() => { if (initial) run(initial); }, [initial, run]);
+  useEffect(() => { if (initial && initial !== last.current) run(initial); }, [initial, run]);
 
   return (
     <>
@@ -98,4 +112,4 @@ export default function ScanForm({ initial }: { initial?: string }) {
       )}
     </>
   );
-}
+});

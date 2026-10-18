@@ -5,7 +5,7 @@ import type { Locale } from '@/i18n/config';
 import { pageMeta } from '@/lib/meta';
 import { WEIGHT } from '@/lib/scan/detect';
 
-type Props = { params: Promise<{ locale: Locale }>; searchParams: Promise<{ url?: string }> };
+type Props = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -13,14 +13,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMeta(locale, '/scan', t('nav.scan'), t('scan.meta'));
 }
 
-export default async function ScanPage({ params, searchParams }: Props) {
-  const [{ locale }, { url }] = await Promise.all([params, searchParams]);
-  const t = getT(locale);
+export default async function ScanPage({ params }: Props) {
+  const t = getT((await params).locale);
   return (
     <div className="wrap page narrow">
       <h1 className="display">{t('nav.scan')}</h1>
       <p className="lede">{t('scan.lede')}</p>
-      <ScanForm initial={url} />
+      <ScanForm />
       <section className="sect">
         <header><h2>{t('scan.howTitle')}</h2></header>
         <ul className="method">

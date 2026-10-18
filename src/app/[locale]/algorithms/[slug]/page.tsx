@@ -12,6 +12,7 @@ import { ctx, pct, type Ctx } from '@/lib/ctx';
 import { toGraph } from '@/lib/graph';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
+import { badgePath, withBase } from '@/lib/runtime';
 import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -57,7 +58,7 @@ export default async function AlgorithmPage({ params }: Props) {
   const children = r.out.get(slug)!.filter((e) => e.status !== 'related');
   const related = [...r.inc.get(slug)!, ...r.out.get(slug)!].filter((e) => e.status === 'related');
   const impls = r.impls.get(slug) ?? [];
-  const badge = `[![CISS credited](${SITE_URL}/api/badge/algorithm/${slug})](${SITE_URL}/${locale}/algorithms/${slug})`;
+  const badge = `[![CISS credited](${SITE_URL}${badgePath('algorithm', slug)})](${SITE_URL}/${locale}/algorithms/${slug})`;
   const local = c.local(a);
   const names = [local !== a.name ? local : undefined, ...(a.aka ?? [])].filter(Boolean);
 
@@ -131,7 +132,7 @@ export default async function AlgorithmPage({ params }: Props) {
         <div className="badge-box">
           <p className="side-l">{t('badge.title')}</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="badge-img" src={`/api/badge/algorithm/${slug}`} alt={`CISS credited: ${a.name}`} height={20} />
+          <img className="badge-img" src={withBase(badgePath('algorithm', slug))} alt={`CISS credited: ${a.name}`} height={20} />
           <CopyField label="Markdown" value={badge} />
         </div>
       </aside>

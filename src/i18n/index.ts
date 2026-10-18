@@ -19,6 +19,15 @@ const HANGUL = /[가-힣]/;
 
 export const messages = (locale: Locale): Messages => MESSAGES[locale];
 
+/** 클라이언트 컴포넌트가 쓰는 네임스페이스. 페이지마다 RSC 페이로드에 실리므로 필요한 것만 보낸다(tests/i18n.test.ts가 누락을 검사). */
+export const CLIENT_NS = ['admin', 'algorithms', 'author.unknown', 'authors', 'brand', 'claim', 'claimForm', 'claims', 'common', 'copy', 'field', 'graph', 'lang', 'nav', 'notFound', 'rankings', 'scan', 'search', 'theme', 'year'];
+export const isClientKey = (k: string) => CLIENT_NS.some((ns) => k === ns || k.startsWith(`${ns}.`));
+const CLIENT = new Map<Locale, Messages>();
+export function clientMessages(locale: Locale): Messages {
+  if (!CLIENT.has(locale)) CLIENT.set(locale, Object.fromEntries(Object.entries(MESSAGES[locale]).filter(([k]) => isClientKey(k))) as Messages);
+  return CLIENT.get(locale)!;
+}
+
 export function getT(locale: Locale): T {
   const m = MESSAGES[locale];
   return (key, vars) => interpolate(m[key] ?? ko[key] ?? key, vars);

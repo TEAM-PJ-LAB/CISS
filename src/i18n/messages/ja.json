@@ -326,5 +326,19 @@
   "dev.policy.cors": "読み取りAPIは、あらゆるオリジンから呼び出せます（CORS *）。",
   "dev.policy.rate": "リポジトリ分析はIPごとに毎分約3回、申請の送信は毎分約2回までに制限しています。",
   "dev.policy.privacy": "異議申し立ての連絡先は保存するだけで、どのAPIからも出力しません。",
-  "dev.policy.env": "セルフホストで運用する場合は、GITHUB_TOKEN、GITLAB_TOKEN、BITBUCKET_TOKENでホストへのリクエスト上限を引き上げ、CISS_ADMIN_TOKENで審査機能を有効にできます。"
+  "dev.policy.env": "セルフホストで運用する場合は、GITHUB_TOKEN、GITLAB_TOKEN、BITBUCKET_TOKENでホストへのリクエスト上限を引き上げ、CISS_ADMIN_TOKENで審査機能を有効にできます。",
+  "claims.github": "この静的版では、リクエストは GitHub Issue として受け付けます。送信すると内容入りの Issue 作成画面が新しいタブで開き、処理結果は Issue の状態（オープン：審査待ち、accepted ラベル付きでクローズ：受理、それ以外のクローズ：却下）として公開されます。",
+  "claimForm.openIssue": "GitHub Issue で送信",
+  "claimForm.githubHint": "GitHub アカウントで公開送信されます。連絡先は書かないでください。",
+  "claimForm.opened": "内容入りの GitHub Issue を新しいタブで開きました。確認して送信してください。",
+  "claimForm.copied": "本文が長いためクリップボードにコピーしました。新しいタブの Issue 本文のプレースホルダーを消して貼り付けてください。",
+  "claim.loadErrorStatic": "GitHub からリクエスト一覧を読み込めませんでした。",
+  "claim.viewIssues": "GitHub Issues で見る",
+  "dev.static": "このサイトは静的版です。ライブ API の代わりに、ビルド時に生成した JSON ダンプと SVG バッジを提供します。検索型 API（/api/search、/api/scan、/api/claims）が必要な場合は Docker イメージでサーバーモードを実行してください。",
+  "dev.files": "静的ファイル",
+  "dev.sf.algorithms": "全アルゴリズムと名誉指標。",
+  "dev.sf.search": "ブラウザ内検索用のロケール別インデックス（ko、en、ja、zh）。",
+  "dev.sf.csv": "テーブル単位の CSV：algorithms、origins、derivations、authors、implementations。",
+  "dev.sf.badge": "README 用 SVG バッジ。/badge/author/{slug}.svg もあります。",
+  "dev.policy.static": "貢献の主張と異議申し立ては GitHub Issue で公開受付するため、連絡先は書かないでください。"
 }
