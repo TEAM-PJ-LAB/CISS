@@ -15,7 +15,7 @@ type Enriched = Omit<ScanReport, 'findings'> & {
   findings: (ReportFinding & { name: string; field: string; year: number | null; score: number; authors: { slug: string; name: string }[] })[];
 };
 
-const EXAMPLES = ['https://github.com/mxgmn/WaveFunctionCollapse', 'npm:fflate', 'pypi:networkx', 'https://gitlab.com/inkscape/inkscape'];
+const EXAMPLES = ['https://github.com/BorisTheBrave/DeBroglie', 'npm:fflate', 'pypi:networkx', 'https://gitlab.com/inkscape/inkscape'];
 
 export default withQuery(function ScanForm({ q }: { q: URLSearchParams }) {
   const { t, href, locale } = useI18n();
