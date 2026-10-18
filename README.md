@@ -51,7 +51,17 @@ npm run build && npm start
 npm run verify:sources   # Crossref·arXiv·GitHub와 출처 재대조 (네트워크 필요)
 ```
 
-Docker로는 `docker build -t ciss . && docker run -p 3000:3000 -v ciss-data:/data ciss`로 실행합니다. 환경변수는 `.env.example`을 참고하세요. 그중 `CISS_ADMIN_TOKEN`을 설정해야 검수 기능이 켜집니다.
+Docker로는 `docker build -t ciss . && docker run -p 3000:3000 -v ciss-data:/data ciss`로 실행합니다.
+
+### 배포
+
+SQLite 파일이 유지되는 **영구 디스크가 있는 컨테이너 호스팅**에 배포합니다. Vercel 같은 서버리스 환경에서는 이의제기 데이터가 유지되지 않습니다.
+
+| 플랫폼 | 설정 파일 | 해야 할 일 |
+|---|---|---|
+| Railway | `railway.json` (Dockerfile 빌드, `/api/health` 헬스체크) | 서비스에 볼륨을 `/data`로 연결하고 `CISS_ADMIN_TOKEN`을 설정합니다. 공개 도메인은 `RAILWAY_PUBLIC_DOMAIN`에서 자동으로 인식합니다. |
+| Render | `render.yaml` (Blueprint, 1GB 디스크 `/data`, 관리자 토큰 자동 생성) | 대시보드에서 Blueprint로 저장소를 연결합니다. 공개 URL은 `RENDER_EXTERNAL_URL`에서 자동으로 인식합니다. |
+| 기타 Docker | `Dockerfile` (HEALTHCHECK 포함) | 볼륨 `/data`를 연결하고 `NEXT_PUBLIC_SITE_URL`을 빌드 인자로 넘깁니다. | 환경변수는 `.env.example`을 참고하세요. 그중 `CISS_ADMIN_TOKEN`을 설정해야 검수 기능이 켜집니다.
 
 ## 구조
 

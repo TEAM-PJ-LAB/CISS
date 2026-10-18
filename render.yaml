@@ -1,0 +1,22 @@
+# Render Blueprint — persistent disk keeps claims & scan cache (SQLite) across deploys.
+services:
+  - type: web
+    name: ciss
+    runtime: docker
+    plan: starter
+    region: singapore
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: ciss-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: CISS_DB_PATH
+        value: /data/ciss.db
+      - key: CISS_ADMIN_TOKEN
+        generateValue: true
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
