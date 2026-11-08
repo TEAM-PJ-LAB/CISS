@@ -1,0 +1,28 @@
+name: Release
+
+# CHANGELOG.md의 각 버전(## vX.Y.Z)에 대해, 태그가 있고 릴리스가 아직 없으면 GitHub Release를 만든다.
+on:
+  push:
+    branches: [main]
+    paths: ['CHANGELOG.md']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Create missing releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for tag in $(grep -oE '^## v[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | cut -c4- | tac); do
+            if ! git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then echo "skip $tag: no tag"; continue; fi
+            if gh release view "$tag" >/dev/null 2>&1; then echo "exists $tag"; continue; fi
+            awk -v t="## $tag" '/^## v/ { p = (index($0, t " ") == 1 || $0 == t); next } p' CHANGELOG.md > notes.md
+            gh release create "$tag" --title "CISS $tag" --notes-file notes.md --verify-tag
+          done
