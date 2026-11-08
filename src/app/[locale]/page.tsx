@@ -6,6 +6,7 @@ import SearchBox from '@/components/SearchBox';
 import { AlgoRef, FieldTag, Section, Status } from '@/components/ui';
 import { EDGE_STATUSES } from '@/data/types';
 import type { Locale } from '@/i18n/config';
+import { authorPath } from '@/lib/featured';
 import { ctx } from '@/lib/ctx';
 import { toGraph } from '@/lib/graph';
 import { pageMeta } from '@/lib/meta';
@@ -84,7 +85,7 @@ export default async function Home({ params }: Props) {
               {ranking.map((y, i) => (
                 <li key={y.author.slug}>
                   <span className="rank">{i + 1}</span>
-                  <Link href={href(`/authors/${y.author.slug}`)} className="pname">{y.author.name}</Link>
+                  <Link href={href(authorPath(r, y.author.slug))} className="pname">{y.author.name}</Link>
                   <span className="num score-sm">{y.score}</span>
                   <span className="meta">
                     {y.algorithms.slice(0, 3).map((z) => r.algo.get(z.slug)!.name).join(', ')}

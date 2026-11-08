@@ -10,6 +10,7 @@ import { algorithmPayload, algorithmsPayload, authorPayload, authorsPayload, gra
 import { badgeFor } from '../src/lib/badge';
 import { CSV_TABLES, datasetPayload } from '../src/lib/dataset';
 import { REGISTRATIONS } from '../src/lib/registrations';
+import { authorPath, featuredAuthors } from '../src/lib/featured';
 import { registry } from '../src/lib/registry';
 import { buildSearchIndex } from '../src/lib/search';
 import { SITE_URL } from '../src/lib/site';
@@ -36,8 +37,22 @@ for (const a of r.algorithms) {
   json(`data/algorithms/${a.slug}.json`, algorithmPayload(r, a.slug));
   put(`badge/algorithm/${a.slug}.svg`, badgeFor(r, 'algorithm', a.slug)!);
 }
+const featured = featuredAuthors(r);
 for (const slug of r.authorCredit.keys()) {
   json(`data/authors/${slug}.json`, authorPayload(r, slug));
+  if (!featured.has(slug)) {
+    const ac = r.authorCredit.get(slug)!;
+    json(`data/author-pages/${slug}.json`, {
+      slug, name: ac.author.name, org: Boolean(ac.author.org), rank: r.rankOf.get(slug), total: r.authorCredit.size, score: ac.score, byField: ac.byField,
+      derived: new Set(ac.algorithms.flatMap((y) => r.out.get(y.slug)!.filter((e) => e.status !== 'related').map((e) => e.to))).size,
+      algorithms: ac.algorithms.map((y) => {
+        const a = r.algo.get(y.slug)!;
+        const others = [...new Set(a.origins.flatMap((o) => o.authors))].filter((s) => s !== slug);
+        return { slug: y.slug, name: a.name, field: a.field, year: r.yearOf(y.slug), share: y.share, points: y.points,
+          with: others.map((s) => ({ slug: s, name: r.author.get(s)?.name ?? s, path: authorPath(r, s, true) })) };
+      }),
+    });
+  }
   put(`badge/author/${slug}.svg`, badgeFor(r, 'author', slug)!);
 }
 json('data/registrations.json', REGISTRATIONS);
@@ -57,7 +72,7 @@ for (const l of LOCALES) {
 }
 
 /* sitemap: 실제로 빌드된 페이지만 싣는다. 하나라도 없으면 빌드를 멈춘다. */
-const paths = sitemapPaths(r);
+const paths = sitemapPaths(r, featured);
 const missing = LOCALES.flatMap((l) => paths.map((p) => `${l}${p}/index.html`)).filter((f) => !existsSync(join(root, f)));
 if (missing.length) throw new Error(`sitemap: ${missing.length} pages missing, e.g. ${missing.slice(0, 3).join(', ')}`);
 put('sitemap.xml', sitemapXml(SITE_URL, paths, LOCALES));
@@ -75,6 +90,7 @@ main{max-width:560px;padding:32px 16px}b{font:600 13px/1 ui-monospace,monospace;
 h1{font:600 clamp(28px,5vw,40px)/1.2 Georgia,"Noto Serif KR",serif;margin:12px 0 8px}p{color:var(--muted);margin:0 0 24px}
 a{display:inline-block;padding:10px 18px;border:1px solid var(--rule);border-radius:999px;color:var(--accent);text-decoration:none}a:hover{border-color:var(--accent)}
 </style></head><body><main><b>404 · CISS</b><h1 id="t">${esc(nf[DEFAULT_LOCALE].title)}</h1><p id="b">${esc(nf[DEFAULT_LOCALE].body)}</p><a id="a" href="${base}/${DEFAULT_LOCALE}/algorithms/">${esc(nf[DEFAULT_LOCALE].cta)}</a></main>
+<script>(function(){var B=${JSON.stringify(base)},x=location.pathname.slice(B.length).match(/^\\/([a-z]{2})\\/authors\\/([a-z0-9-]+)\\/?$/);if(x&&x[2]!=='view')location.replace(B+'/'+x[1]+'/authors/view/?a='+x[2]+location.hash)})()</script>
 <script>(function(){var M=${JSON.stringify(nf)},B=${JSON.stringify(base)},p=location.pathname.slice(B.length).split('/')[1],k=(document.cookie.match(/(?:^|; )${LOCALE_COOKIE}=([a-z]{2})/)||[])[1],l=M[p]?p:M[k]?k:${JSON.stringify(DEFAULT_LOCALE)},m=M[l];
 document.documentElement.lang=m.lang;document.getElementById('t').textContent=m.title;document.getElementById('b').textContent=m.body;var a=document.getElementById('a');a.textContent=m.cta;a.href=B+'/'+l+'/algorithms/'})()</script></body></html>`);
 console.log(`export-static: ${n} files -> ${root}/, ${pruned} detail RSC payloads pruned`);

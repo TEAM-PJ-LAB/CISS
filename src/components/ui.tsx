@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import type { Algorithm, EdgeStatus, Field, Origin, SourceId } from '@/data/types';
 import { formatYear } from '@/i18n';
 import type { Ctx } from '@/lib/ctx';
+import { authorPath } from '@/lib/featured';
 
 export const fieldColor = (f: Field) => ({ '--fc': `var(--f-${f})` }) as CSSProperties;
 
@@ -36,7 +37,7 @@ export function Authors({ x, slugs, max }: { x: Ctx; slugs: string[]; max?: numb
   return (
     <>
       {shown.map((s, i) => (
-        <span key={s}>{i > 0 && ', '}<Link href={x.href(`/authors/${s}`)}>{x.r.author.get(s)?.name ?? s}</Link></span>
+        <span key={s}>{i > 0 && ', '}<Link href={x.href(authorPath(x.r, s))}>{x.r.author.get(s)?.name ?? s}</Link></span>
       ))}
       {shown.length < slugs.length && <span className="muted"> {x.t('common.andMore', { n: slugs.length - shown.length })}</span>}
     </>

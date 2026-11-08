@@ -10,13 +10,19 @@ import { getT } from '@/i18n';
 import { LOCALES, type Locale } from '@/i18n/config';
 import { ctx } from '@/lib/ctx';
 import { pageMeta } from '@/lib/meta';
+import { featuredAuthors } from '@/lib/featured';
 import { registry } from '@/lib/registry';
-import { wikiLinks, badgePath, withBase } from '@/lib/runtime';
+import { badgePath, STATIC, wikiLinks, withBase } from '@/lib/runtime';
 import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
-export const generateStaticParams = () => LOCALES.flatMap((locale) => [...registry().authorCredit.keys()].map((slug) => ({ locale, slug })));
+/** 정적 배포는 lib/featured 범위만 미리 만들고, 나머지는 /authors/view가 데이터로 그린다. */
+export const generateStaticParams = () => {
+  const r = registry();
+  const slugs = STATIC ? [...featuredAuthors(r)] : [...r.authorCredit.keys()];
+  return LOCALES.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;

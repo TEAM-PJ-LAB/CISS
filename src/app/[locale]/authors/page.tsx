@@ -5,6 +5,7 @@ import { fieldColor } from '@/components/ui';
 import type { Field } from '@/data/types';
 import { getT } from '@/i18n';
 import type { Locale } from '@/i18n/config';
+import { authorPath } from '@/lib/featured';
 import { ctx } from '@/lib/ctx';
 import { pageMeta } from '@/lib/meta';
 
@@ -28,7 +29,7 @@ export default async function Authors({ params }: Props) {
       node: (
         <tr>
           <td className="num muted">{r.rankOf.get(y.author.slug)}</td>
-          <td><Link href={href(`/authors/${y.author.slug}`)} className="pname">{y.author.name}</Link>{y.author.org && <span className="tag">{t('authors.org')}</span>}</td>
+          <td><Link href={href(authorPath(r, y.author.slug))} className="pname">{y.author.name}</Link>{y.author.org && <span className="tag">{t('authors.org')}</span>}</td>
           <td className="small"><span className="ftag"><i className="fdot" style={fieldColor(main)} aria-hidden />{t(`field.${main}`)}</span></td>
           <td className="small">
             {y.algorithms.slice(0, 3).map((z, i) => <span key={z.slug}>{i > 0 && ', '}<Link href={href(`/algorithms/${z.slug}`)}>{r.algo.get(z.slug)!.name}</Link></span>)}

@@ -4,10 +4,10 @@ import type { Registry } from './registry';
 /** 색인 대상 경로(로케일 접두사 없이). 검색 결과 페이지는 noindex라 뺀다. */
 export const SECTIONS = ['', '/algorithms', '/graph', '/authors', '/rankings', '/scan', '/registry', '/register', '/claims', '/about', '/developers'] as const;
 
-export const sitemapPaths = (r: Registry): string[] => [
+export const sitemapPaths = (r: Registry, authors: Iterable<string> = r.authorCredit.keys()): string[] => [
   ...SECTIONS,
   ...r.algorithms.map((a) => `/algorithms/${a.slug}`),
-  ...[...r.authorCredit.keys()].map((s) => `/authors/${s}`),
+  ...[...authors].map((s) => `/authors/${s}`),
 ];
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);

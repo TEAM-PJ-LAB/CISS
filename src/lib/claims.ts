@@ -1,5 +1,6 @@
 import { timingSafeEqual } from 'node:crypto';
 import { getDb } from './db';
+import { authorPath } from './featured';
 import type { Registry } from './registry';
 
 export const CLAIM_KINDS = ['claim', 'dispute'] as const;
@@ -45,7 +46,7 @@ export function targetLabel(r: Registry, target: string) {
   const [type, ...rest] = target.split(':');
   const id = rest.join(':');
   if (type === 'algorithm') return { href: `/algorithms/${id}`, text: r.algo.get(id)?.name ?? id };
-  if (type === 'author') return { href: `/authors/${id}`, text: r.author.get(id)?.name ?? id };
+  if (type === 'author') return { href: authorPath(r, id), text: r.author.get(id)?.name ?? id };
   const [from, to] = id.split('>');
   return { href: `/algorithms/${to}#parents`, text: `${r.algo.get(from)?.name ?? from} → ${r.algo.get(to)?.name ?? to}` };
 }
