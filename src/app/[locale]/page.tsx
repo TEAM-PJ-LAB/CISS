@@ -9,6 +9,8 @@ import type { Locale } from '@/i18n/config';
 import { ctx } from '@/lib/ctx';
 import { toGraph } from '@/lib/graph';
 import { pageMeta } from '@/lib/meta';
+import { ldJson, websiteLd } from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 
 const HERO = 'quicksort';
 type Props = { params: Promise<{ locale: Locale }> };
@@ -27,6 +29,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(websiteLd(SITE_URL, x.locale, t)) }} />
       <section className="atlas" aria-labelledby="hero-h">
         <div className="wrap atlas-grid">
           <div className="atlas-copy">

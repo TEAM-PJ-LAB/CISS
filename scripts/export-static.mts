@@ -2,7 +2,7 @@
  * 정적 배포(GitHub Pages)용 데이터·배지 생성. `next build`(CISS_STATIC=1) 뒤 out/에 쓴다.
  * 서버 모드의 /api/* 응답과 같은 페이로드 빌더를 쓰므로 내용이 일치한다.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { getT } from '../src/i18n';
 import { HTML_LANG, LOCALES } from '../src/i18n/config';
@@ -11,6 +11,8 @@ import { badgeFor } from '../src/lib/badge';
 import { CSV_TABLES, datasetPayload } from '../src/lib/dataset';
 import { registry } from '../src/lib/registry';
 import { buildSearchIndex } from '../src/lib/search';
+import { SITE_URL } from '../src/lib/site';
+import { sitemapPaths, sitemapXml } from '../src/lib/sitemap';
 
 const root = process.argv[2] ?? 'out';
 const r = registry();
@@ -38,6 +40,12 @@ for (const slug of r.authorCredit.keys()) {
   put(`badge/author/${slug}.svg`, badgeFor(r, 'author', slug)!);
 }
 put('.nojekyll', '');
+
+/* sitemap: 실제로 빌드된 페이지만 싣는다. 하나라도 없으면 빌드를 멈춘다. */
+const paths = sitemapPaths(r);
+const missing = LOCALES.flatMap((l) => paths.map((p) => `${l}${p}/index.html`)).filter((f) => !existsSync(join(root, f)));
+if (missing.length) throw new Error(`sitemap: ${missing.length} pages missing, e.g. ${missing.slice(0, 3).join(', ')}`);
+put('sitemap.xml', sitemapXml(SITE_URL, paths, LOCALES));
 
 /* GitHub Pages는 없는 경로에 /404.html을 준다. Next 런타임 없이 경로의 로케일로 문구를 고르는 자립형 페이지. */
 const base = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
