@@ -34,7 +34,7 @@ export default [
   a('square-cipher', 'Square', '바이트 단위 치환과 열 혼합으로 확산을 설계한 SPN 블록 암호. Rijndael의 직접적 전신이다.',
     [o('daemen,knudsen,rijmen', 1997, 'The Block Cipher Square', 'FSE 1997', 'doi:10.1007/BFb0052343')]),
   a('aes', 'AES (Rijndael)', '128비트 블록, 128/192/256비트 키의 치환-순열 네트워크 블록 암호. 2001년 미국 연방 표준으로 채택되었다.',
-    [o('daemen,rijmen', 1998, 'AES Proposal: Rijndael', 'NIST AES 공모 제출 (표준: FIPS 197, 2001)', 'doi:10.6028/NIST.FIPS.197')], { aka: ['Rijndael'] }),
+    [o('daemen,rijmen', 1998, 'AES Proposal: Rijndael', 'NIST AES 공모 제출 (표준: FIPS 197, 2001)', 'url:https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf')], { aka: ['Rijndael'] }),
   a('blowfish', 'Blowfish', '키에 의존하는 S-박스를 쓰는 64비트 블록 페이스텔 암호. 키 설정이 의도적으로 무겁다.',
     [o('schneier', 1993, 'Description of a New Variable-Length Key, 64-bit Block Cipher (Blowfish)', 'FSE 1993', 'doi:10.1007/3-540-58108-1_24')]),
   a('bcrypt', 'bcrypt', 'Blowfish의 키 설정을 비용 인자만큼 반복(Eksblowfish)해 무차별 대입을 늦추는 비밀번호 해시.',

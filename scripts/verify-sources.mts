@@ -19,24 +19,50 @@ const similar = (a: string, b: string) => {
 };
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-async function crossref(doi: string) {
+const UA = { 'User-Agent': 'CISS-verify (https://github.com/TEAM-PJ-LAB/CISS)' };
+type Meta = { title: string; year?: number; via: string };
+
+/** 등록 메타데이터에 결함이 있어(예: Crossref 제목이 빈 칸) 출판사 페이지로 직접 확인한 항목. 근거를 via에 남긴다. */
+const MANUAL: Record<string, Meta> = {
+  'doi:10.4086/toc.2012.v008a019': { title: 'Distance Transforms of Sampled Functions', year: 2012, via: 'Theory of Computing article page (Crossref title empty)' },
+};
+
+/** DataCite: arXiv(10.48550)·Eurographics(10.2312)·대학 보고서 등 Crossref에 없는 DOI. */
+async function datacite(doi: string): Promise<Meta | null> {
   for (let i = 0; i < 3; i++) {
-    const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`, { headers: { 'User-Agent': 'CISS-verify (https://github.com/TEAM-PJ-LAB/CISS)' } });
-    if (res.status === 429) { await sleep(2000 * (i + 1)); continue; }
+    const res = await fetch(`https://api.datacite.org/dois/${encodeURIComponent(doi)}`, { headers: UA });
+    if (res.status === 429 || res.status >= 500) { await sleep(2000 * (i + 1)); continue; }
     if (!res.ok) return null;
-    const m = (await res.json()).message;
-    return { title: [m.title?.[0], m.subtitle?.[0]].filter(Boolean).join(': '), year: m.issued?.['date-parts']?.[0]?.[0] as number | undefined };
+    const a = (await res.json()).data?.attributes;
+    return a?.titles?.[0]?.title ? { title: a.titles[0].title, year: a.publicationYear ?? undefined, via: 'DataCite' } : null;
   }
   return null;
 }
 
-async function arxiv(id: string) {
-  const res = await fetch(`https://export.arxiv.org/api/query?id_list=${id}`);
-  if (!res.ok) return null;
-  const xml = await res.text();
-  const title = xml.match(/<entry>[\s\S]*?<title>([\s\S]*?)<\/title>/)?.[1]?.replace(/\s+/g, ' ').trim();
-  const year = Number(xml.match(/<published>(\d{4})/)?.[1]);
-  return title ? { title, year } : null;
+async function crossref(doi: string): Promise<Meta | null> {
+  for (let i = 0; i < 3; i++) {
+    const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`, { headers: UA });
+    if (res.status === 429 || res.status >= 500) { await sleep(2000 * (i + 1)); continue; }
+    if (res.status === 404) return datacite(doi);
+    if (!res.ok) return null;
+    const m = (await res.json()).message;
+    return { title: [m.title?.[0], m.subtitle?.[0]].filter(Boolean).join(': '), year: m.issued?.['date-parts']?.[0]?.[0] as number | undefined, via: 'Crossref' };
+  }
+  return null;
+}
+
+/** arXiv API는 요청 간 3초 간격을 요구한다. 실패하면 arXiv DOI(DataCite)로 확인한다. */
+let lastArxiv = 0;
+async function arxiv(id: string): Promise<Meta | null> {
+  for (let i = 0; i < 3; i++) {
+    await sleep(Math.max(0, lastArxiv + 3100 - Date.now()));
+    lastArxiv = Date.now();
+    const res = await fetch(`https://export.arxiv.org/api/query?id_list=${id}`, { headers: UA });
+    const xml = res.ok ? await res.text() : '';
+    const title = xml.match(/<entry>[\s\S]*?<title>([\s\S]*?)<\/title>/)?.[1]?.replace(/\s+/g, ' ').trim();
+    if (title && title !== 'Error') return { title, year: Number(xml.match(/<published>(\d{4})/)?.[1]) || undefined, via: 'arXiv' };
+  }
+  return datacite(`10.48550/arXiv.${id}`);
 }
 
 async function verifySources() {
@@ -44,9 +70,9 @@ async function verifySources() {
   let bad = 0;
   for (const a of ALGORITHMS) for (const o of a.origins) {
     if (!o.id || o.id.startsWith('url:')) continue;
-    const meta = o.id.startsWith('doi:') ? await crossref(o.id.slice(4)) : await arxiv(o.id.slice(6));
+    const meta = MANUAL[o.id] ?? (o.id.startsWith('doi:') ? await crossref(o.id.slice(4)) : await arxiv(o.id.slice(6)));
     const ok = meta && similar(meta.title, o.title) >= 0.5;
-    out[o.id] = ok ? { status: 'ok', title: meta!.title, ...(meta!.year && { year: meta!.year }), checked: today, via: o.id.startsWith('doi:') ? 'Crossref' : 'arXiv' }
+    out[o.id] = ok ? { status: 'ok', title: meta!.title, ...(meta!.year && { year: meta!.year }), checked: today, via: meta!.via }
       : { status: meta ? 'mismatch' : 'notfound', ...(meta && { title: meta.title }), checked: today, via: 'script' };
     if (!ok) { bad++; console.warn(`✗ ${a.slug} ${o.id} → ${meta?.title ?? 'not found'} (expected "${o.title}")`); }
     await sleep(120);
