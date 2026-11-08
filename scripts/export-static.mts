@@ -2,7 +2,7 @@
  * 정적 배포(GitHub Pages)용 데이터·배지 생성. `next build`(CISS_STATIC=1) 뒤 out/에 쓴다.
  * 서버 모드의 /api/* 응답과 같은 페이로드 빌더를 쓰므로 내용이 일치한다.
  */
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { getT } from '../src/i18n';
 import { DEFAULT_LOCALE, HTML_LANG, LOCALE_COOKIE, LOCALES } from '../src/i18n/config';
@@ -41,6 +41,18 @@ for (const slug of r.authorCredit.keys()) {
 }
 put('.nojekyll', '');
 
+/* GitHub Pages는 게시 사이트를 1GB로 제한한다. 상세 페이지의 RSC 페이로드(index.txt)는 싣지 않고,
+   그 페이지로의 링크·이동은 일반 페이지 로드로 처리한다 (src/lib/nav.ts, components/AppLink.tsx). */
+let pruned = 0;
+for (const l of LOCALES) {
+  for (const [dir, slugs] of [['algorithms', r.algorithms.map((a) => a.slug)], ['authors', [...r.authorCredit.keys()]]] as const) {
+    for (const s of slugs) {
+      const f = join(root, l, dir, s, 'index.txt');
+      if (existsSync(f)) { rmSync(f); pruned++; }
+    }
+  }
+}
+
 /* sitemap: 실제로 빌드된 페이지만 싣는다. 하나라도 없으면 빌드를 멈춘다. */
 const paths = sitemapPaths(r);
 const missing = LOCALES.flatMap((l) => paths.map((p) => `${l}${p}/index.html`)).filter((f) => !existsSync(join(root, f)));
@@ -62,4 +74,4 @@ a{display:inline-block;padding:10px 18px;border:1px solid var(--rule);border-rad
 </style></head><body><main><b>404 · CISS</b><h1 id="t">${esc(nf[DEFAULT_LOCALE].title)}</h1><p id="b">${esc(nf[DEFAULT_LOCALE].body)}</p><a id="a" href="${base}/${DEFAULT_LOCALE}/algorithms/">${esc(nf[DEFAULT_LOCALE].cta)}</a></main>
 <script>(function(){var M=${JSON.stringify(nf)},B=${JSON.stringify(base)},p=location.pathname.slice(B.length).split('/')[1],k=(document.cookie.match(/(?:^|; )${LOCALE_COOKIE}=([a-z]{2})/)||[])[1],l=M[p]?p:M[k]?k:${JSON.stringify(DEFAULT_LOCALE)},m=M[l];
 document.documentElement.lang=m.lang;document.getElementById('t').textContent=m.title;document.getElementById('b').textContent=m.body;var a=document.getElementById('a');a.textContent=m.cta;a.href=B+'/'+l+'/algorithms/'})()</script></body></html>`);
-console.log(`export-static: ${n} files -> ${root}/`);
+console.log(`export-static: ${n} files -> ${root}/, ${pruned} detail RSC payloads pruned`);

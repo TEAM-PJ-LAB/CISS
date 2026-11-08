@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useId, useState } from 'react';
 import { useI18n } from '@/i18n/client';
 import type { Hit } from '@/lib/search-core';
+import { navigate } from '@/lib/nav';
 import { useSearch } from '@/lib/use-search';
 
 export default function SearchBox({ initial = '', size = 'md' }: { initial?: string; size?: 'md' | 'lg' }) {
@@ -16,7 +17,7 @@ export default function SearchBox({ initial = '', size = 'md' }: { initial?: str
   const { hits } = useSearch(q, locale, 8);
 
   const to = (h: Hit) => href(`/${h.kind === 'author' ? 'authors' : 'algorithms'}/${h.slug}`);
-  const go = (path: string) => { setOpen(false); router.push(path); };
+  const go = (path: string) => { setOpen(false); navigate((p) => router.push(p), path); };
 
   return (
     <form role="search" className={`search ${size}`} onSubmit={(e) => { e.preventDefault(); if (q.trim()) go(sel >= 0 ? to(hits[sel]) : href(`/search?q=${encodeURIComponent(q)}`)); }}>

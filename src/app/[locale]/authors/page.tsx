@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { AuthorsView, type AuthorRow } from '@/components/QueryViews';
 import { fieldColor } from '@/components/ui';
 import type { Field } from '@/data/types';

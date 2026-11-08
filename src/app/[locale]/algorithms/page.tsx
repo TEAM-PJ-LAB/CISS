@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { Authors, fieldColor } from '@/components/ui';
 import { AlgorithmsView, type AlgoRow } from '@/components/QueryViews';
 import { formatYear, getT } from '@/i18n';

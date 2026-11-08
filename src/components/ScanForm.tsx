@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useI18n } from '@/i18n/client';
 import type { MsgKey } from '@/i18n';

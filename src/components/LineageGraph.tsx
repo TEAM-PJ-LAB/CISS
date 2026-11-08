@@ -7,6 +7,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useRouter } from 'next/navigation';
+import { navigate } from '@/lib/nav';
 import { memo, useMemo, type CSSProperties } from 'react';
 import { useI18n } from '@/i18n/client';
 
@@ -105,7 +106,7 @@ export default function LineageGraph({ nodes, edges, focus, dim, labels = true, 
         nodes={rfNodes} edges={rfEdges} nodeTypes={nodeTypes}
         fitView fitViewOptions={{ padding: 0.12, maxZoom: 1.1 }} minZoom={0.15} maxZoom={2}
         nodesConnectable={false} elementsSelectable={false} proOptions={{ hideAttribution: true }}
-        onNodeClick={(_, n) => n.id !== focus && router.push(href(`/algorithms/${n.id}`))}
+        onNodeClick={(_, n) => n.id !== focus && navigate((p) => router.push(p), href(`/algorithms/${n.id}`))}
       >
         <Background gap={24} size={1} color="var(--rule)" />
         {controls && <Controls showInteractive={false} position="bottom-right" />}

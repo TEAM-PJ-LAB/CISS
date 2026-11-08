@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { useSearchParams } from 'next/navigation';
 import { Fragment, Suspense, type CSSProperties, type ReactNode } from 'react';
 import { FIELDS, type Field } from '@/data/types';

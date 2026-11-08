@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { Section, Status } from '@/components/ui';
 import { DERIVATION_TYPES, EDGE_STATUSES, EVIDENCE_KINDS } from '@/data/types';
 import { getT } from '@/i18n';

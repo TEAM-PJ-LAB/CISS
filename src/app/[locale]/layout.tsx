@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import Header from '@/components/Header';

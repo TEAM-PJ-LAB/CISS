@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import type { CSSProperties, ReactNode } from 'react';
 import type { Algorithm, EdgeStatus, Field, Origin, SourceId } from '@/data/types';
 import { formatYear } from '@/i18n';

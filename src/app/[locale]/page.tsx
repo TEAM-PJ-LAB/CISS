@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import type { CSSProperties } from 'react';
 import LineageGraph from '@/components/LineageGraph';
 import SearchBox from '@/components/SearchBox';

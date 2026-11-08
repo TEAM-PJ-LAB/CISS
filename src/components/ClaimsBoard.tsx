@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/AppLink';
 import { useI18n } from '@/i18n/client';
 import { useClaims } from '@/lib/claims-client';
 import { STATIC } from '@/lib/runtime';

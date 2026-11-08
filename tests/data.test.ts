@@ -10,9 +10,9 @@ const year = (s: string) => Math.min(...algo.get(s)!.origins.map((o) => o.year))
 const dup = (xs: string[]) => xs.filter((x, i) => xs.indexOf(x) !== i);
 
 describe('seed lineage DB integrity', () => {
-  it('PRD Phase 0 범위(100~300개)를 만족한다', () => {
+  it('PRD 시드 DB 규모(100개 이상, 상한 10,000개)를 만족한다', () => {
     expect(ALGORITHMS.length).toBeGreaterThanOrEqual(100);
-    expect(ALGORITHMS.length).toBeLessThanOrEqual(300);
+    expect(ALGORITHMS.length).toBeLessThanOrEqual(10000);
   });
 
   it('slug가 유일하고 형식이 올바르다', () => {
