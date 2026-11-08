@@ -60,7 +60,7 @@ Docker로는 `docker build -t ciss . && docker run -p 3000:3000 -v ciss-data:/da
 
 `main`에 푸시하면 `.github/workflows/pages.yml`이 테스트를 돌린 뒤 `npm run build:static`으로 정적 사이트를 만들어 Pages에 올립니다. 저장소 **Settings → Pages → Source**를 **GitHub Actions**로 한 번 지정해야 합니다.
 
-GitHub Pages는 게시 사이트를 1GB로 제한합니다. 그래서 알고리즘·기여자 상세 페이지는 RSC 페이로드(`index.txt`) 없이 내보내고, 그 페이지로의 이동은 일반 페이지 로드로 처리합니다(`src/lib/nav.ts`, `src/components/AppLink.tsx`). 현재 결과물은 약 730MB입니다.
+GitHub Pages는 게시 사이트를 1GB로 제한합니다. 그래서 알고리즘·기여자 상세 페이지는 RSC 페이로드(`index.txt`) 없이 내보내고, 그 페이지로의 이동은 일반 페이지 로드로 처리합니다(`src/lib/nav.ts`, `src/components/AppLink.tsx`). 현재 결과물은 약 650MB입니다.
 
 정적 배포판은 서버 없이 같은 기능을 이렇게 제공합니다.
 
@@ -95,6 +95,21 @@ src/
 scripts/           verify-sources, export-catalog(번역 카탈로그), export-static(Pages용 데이터·배지)
 tests/             vitest
 ```
+
+## 알고리즘 등록·인증과 위키 편집
+
+로그인과 신원은 모두 GitHub 계정으로 처리합니다. 서버에 계정 정보를 따로 두지 않습니다.
+
+- **등록 신청**: 사이트의 `/register`에서 내용을 적으면 미리 채워진 GitHub 이슈 폼(`.github/ISSUE_TEMPLATE/register-algorithm.yml`)이 열립니다. 이슈를 연 계정이 등록자이고, 이슈를 연 시각이 등록 시각입니다.
+- **자동 검사**: `registry-bot` 워크플로(`scripts/registry-bot.mts`)가 아래를 검사하고 결과를 댓글로 남깁니다. 결과에 따라 `ciss:checks-passed` 또는 `ciss:checks-failed` 라벨을 붙입니다.
+  - 폼 형식
+  - DOI·arXiv의 실재 여부 (Crossref·DataCite·arXiv)
+  - 기준 코드를 커밋에 고정하고 파일의 SHA-256을 기록
+  - 등록자가 저장소의 소유자, 기여자 또는 조직 공개 멤버인지
+  - 파생 원천이 CISS에 있는 알고리즘인지
+- **승인**: 관리자가 `ciss:approved` 라벨을 붙이면 봇이 다시 검사합니다. 통과하면 `CISS-연도-번호`를 매겨 `src/data/registrations.json`에 커밋하고, 인증서 댓글을 단 뒤 이슈를 닫고, Pages 배포를 실행합니다.
+- **인증서**: `/registry`에 공개되고, 배지 `badge/registration/<id>.svg`가 발급됩니다. 인증서는 등록 사실과 시각, 제출된 코드·문서를 기록할 뿐 독창성이나 특허성을 판정하지 않습니다.
+- **위키 편집**: 알고리즘·기여자 페이지의 "GitHub에서 편집"은 데이터 파일을 GitHub 편집기로 엽니다. 저장하면 풀 리퀘스트가 되고, CI(데이터 무결성 테스트)를 통과한 뒤 병합되면 반영됩니다. "편집 기록"은 그 파일의 커밋 이력입니다.
 
 ## 데이터 추가 방법
 
