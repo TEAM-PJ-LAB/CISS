@@ -23,7 +23,7 @@
 
 ## 시드 데이터 (Phase 0)
 
-- 알고리즘 274개(12개 분야), 기여자 465명, 파생 관계 225개(검증 165, 추정 25, 관련 35), 구현체 85건
+- 알고리즘 1,334개(12개 분야), 기여자 2,380명, 파생 관계 1,139개(검증 671, 추정 329, 관련 139), 구현체 763건
 - 독립 발견은 복수 기원으로 기록합니다. 예: RSA는 Cocks(1973)와 Rivest·Shamir·Adleman(1977), BST는 Windley·Booth & Colin·Hibbard입니다.
 - 모든 엣지는 유형 5종(변형, 최적화, 일반화, 조합, 이식) 중 하나와 근거, 신뢰도를 가집니다. 직접 근거가 없으면 `추정`, 파생 근거가 없으면 `관련`으로 표기하고 `관련`은 점수에 반영하지 않습니다(PRD §8).
 - **출처 검증**: DOI와 arXiv ID 214개 전부를 Crossref, OpenAlex, arXiv와 대조했습니다(`src/data/source-checks.json`). 이 과정에서 잘못된 DOI 2건을 찾아 교정했습니다.
@@ -60,6 +60,8 @@ Docker로는 `docker build -t ciss . && docker run -p 3000:3000 -v ciss-data:/da
 
 `main`에 푸시하면 `.github/workflows/pages.yml`이 테스트를 돌린 뒤 `npm run build:static`으로 정적 사이트를 만들어 Pages에 올립니다. 저장소 **Settings → Pages → Source**를 **GitHub Actions**로 한 번 지정해야 합니다.
 
+GitHub Pages는 게시 사이트를 1GB로 제한합니다. 그래서 알고리즘·기여자 상세 페이지는 RSC 페이로드(`index.txt`) 없이 내보내고, 그 페이지로의 이동은 일반 페이지 로드로 처리합니다(`src/lib/nav.ts`, `src/components/AppLink.tsx`). 현재 결과물은 약 730MB입니다.
+
 정적 배포판은 서버 없이 같은 기능을 이렇게 제공합니다.
 
 | 기능 | 서버 모드 | 정적 배포(Pages) |
@@ -88,7 +90,7 @@ src/
   data/            시드 DB (algorithms/*.ts, authors, derivations, implementations, source-checks.json)
   i18n/            locales, UI 사전(messages/*.json), 콘텐츠 번역(content/*.json)
   lib/             registry(그래프·점수), search, claims(SQLite), scan(엔진), badge, rate-limit
-  app/[locale]/    페이지 (SSG 약 3,000개)
+  app/[locale]/    페이지 (SSG 약 15,000개)
   app/api/         공개 API
 scripts/           verify-sources, export-catalog(번역 카탈로그), export-static(Pages용 데이터·배지)
 tests/             vitest
@@ -98,8 +100,9 @@ tests/             vitest
 
 1. `src/data/algorithms/<field>.ts`에 `a(slug, name, summary, [o(authors, year, title, venue, id)])` 형식으로 추가합니다.
 2. 파생 관계는 `src/data/derivations.ts`에 `d('from>to', type, status, confidence, evidenceKind, text, ref)` 형식으로 추가합니다.
-3. `npm test`를 실행합니다. 시간 역행, 사이클, 고아 저자, 근거 누락, 미번역 키가 있으면 테스트가 실패합니다.
-4. `npm run catalog`로 번역 카탈로그를 뽑고 `src/i18n/content/{en,ja,zh}.json`을 갱신합니다.
+3. 출처는 `ciss-bot/` 브랜치에 푸시하면 Actions(`Verify sources`)가 Crossref·arXiv와 대조해 `source-checks.json`을 갱신합니다. 로컬에서는 `npm run verify:sources`로 같은 검사를 할 수 있습니다.
+4. `npm test`를 실행합니다. 시간 역행, 사이클, 고아 저자, 근거 누락, 미번역 키가 있으면 테스트가 실패합니다.
+5. `npm run catalog`로 번역 카탈로그를 뽑고 `src/i18n/content/{en,ja,zh}.json`을 갱신합니다.
 
 ## 라이선스
 
