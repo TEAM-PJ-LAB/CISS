@@ -1,0 +1,36 @@
+name: Registry bot
+
+# 알고리즘 등록 신청(이슈 라벨 ciss:register)을 검사하고, 관리자 승인(ciss:approved) 시 인증서를 발급한다.
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: registry-bot
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    if: contains(github.event.issue.labels.*.name, 'ciss:register')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - id: bot
+        run: npx tsx --tsconfig tsconfig.json scripts/registry-bot.mts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # GITHUB_TOKEN으로 한 푸시는 다른 워크플로를 깨우지 않으므로 배포를 직접 요청한다.
+      - if: steps.bot.outputs.certified == '1'
+        run: gh workflow run pages.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

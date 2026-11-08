@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Claim or dispute a record · 기여 주장·이의제기
+    url: https://team-pj-lab.github.io/CISS/en/claims/
+    about: Use the CISS claims page to correct an origin, lineage link or contributor.

@@ -11,7 +11,7 @@ import { LOCALES, type Locale } from '@/i18n/config';
 import { ctx } from '@/lib/ctx';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
-import { badgePath, withBase } from '@/lib/runtime';
+import { wikiLinks, badgePath, withBase } from '@/lib/runtime';
 import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -41,7 +41,8 @@ export default async function AuthorPage({ params }: Props) {
   return (
     <div className="wrap page record">
       <article>
-        <p className="crumb"><Link href={href('/authors')}>{t('nav.authors')}</Link></p>
+        <p className="crumb"><Link href={href('/authors')}>{t('nav.authors')}</Link>
+          <span className="wiki"><a href={wikiLinks('src/data/authors.ts').edit} target="_blank" rel="noopener noreferrer">{t('wiki.edit')}</a><a href={wikiLinks('src/data/authors.ts').history} target="_blank" rel="noopener noreferrer">{t('wiki.history')}</a></span></p>
         <h1 className="display">{ac.author.name}</h1>
         <p className="lede">{ac.author.org && `${t('authors.org')}. `}{t('author.lede', { n: ac.algorithms.length, m: new Set(derived.map((e) => e.to)).size })}</p>
 

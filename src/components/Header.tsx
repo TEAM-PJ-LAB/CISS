@@ -14,6 +14,7 @@ const NAV: [string, MsgKey][] = [
   ['/authors', 'nav.authors'],
   ['/rankings', 'nav.rankings'],
   ['/scan', 'nav.scan'],
+  ['/registry', 'nav.registry'],
   ['/claims', 'nav.claims'],
   ['/about', 'nav.about'],
 ];

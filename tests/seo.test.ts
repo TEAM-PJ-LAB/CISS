@@ -15,7 +15,7 @@ describe('sitemap', () => {
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
   it('lists every section, algorithm and author once per locale, no search page', () => {
-    expect(paths.length).toBe(9 + r.algorithms.length + r.authorCredit.size);
+    expect(paths.length).toBe(11 + r.algorithms.length + r.authorCredit.size);
     expect(new Set(paths).size).toBe(paths.length);
     expect(locs.length).toBe(paths.length * LOCALES.length);
     expect(new Set(locs).size).toBe(locs.length);

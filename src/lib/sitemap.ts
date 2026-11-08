@@ -2,7 +2,7 @@ import { DEFAULT_LOCALE, type Locale } from '@/i18n/config';
 import type { Registry } from './registry';
 
 /** 색인 대상 경로(로케일 접두사 없이). 검색 결과 페이지는 noindex라 뺀다. */
-export const SECTIONS = ['', '/algorithms', '/graph', '/authors', '/rankings', '/scan', '/claims', '/about', '/developers'] as const;
+export const SECTIONS = ['', '/algorithms', '/graph', '/authors', '/rankings', '/scan', '/registry', '/register', '/claims', '/about', '/developers'] as const;
 
 export const sitemapPaths = (r: Registry): string[] => [
   ...SECTIONS,

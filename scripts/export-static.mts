@@ -9,6 +9,7 @@ import { DEFAULT_LOCALE, HTML_LANG, LOCALE_COOKIE, LOCALES } from '../src/i18n/c
 import { algorithmPayload, algorithmsPayload, authorPayload, authorsPayload, graphPayload } from '../src/lib/api';
 import { badgeFor } from '../src/lib/badge';
 import { CSV_TABLES, datasetPayload } from '../src/lib/dataset';
+import { REGISTRATIONS } from '../src/lib/registrations';
 import { registry } from '../src/lib/registry';
 import { buildSearchIndex } from '../src/lib/search';
 import { SITE_URL } from '../src/lib/site';
@@ -39,6 +40,8 @@ for (const slug of r.authorCredit.keys()) {
   json(`data/authors/${slug}.json`, authorPayload(r, slug));
   put(`badge/author/${slug}.svg`, badgeFor(r, 'author', slug)!);
 }
+json('data/registrations.json', REGISTRATIONS);
+for (const g of REGISTRATIONS) put(`badge/registration/${g.id}.svg`, badgeFor(r, 'registration', g.id)!);
 put('.nojekyll', '');
 
 /* GitHub Pages는 게시 사이트를 1GB로 제한한다. 상세 페이지의 RSC 페이로드(index.txt)는 싣지 않고,

@@ -387,3 +387,29 @@ html[lang='ja'] .cite .ttl, html[lang='zh-Hans'] .cite .ttl, html[lang='ko'] .ci
 .m-get { color: var(--verified); background: color-mix(in srgb, var(--verified) 12%, transparent); }
 .m-post { color: var(--estimated); background: color-mix(in srgb, var(--estimated) 12%, transparent); }
 .tbl.api code { color: var(--ink); }
+
+/* Registry · wiki */
+.crumb .wiki { margin-left: auto; display: inline-flex; gap: 14px; }
+.crumb .wiki a { color: var(--link); }
+.steps { margin: 8px 0 28px; padding-left: 1.4em; display: grid; gap: 8px; max-width: 72ch; }
+.steps li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cert-note { max-width: 72ch; margin: 18px 0 0; }
+.cert { border: 1px solid var(--rule-strong); border-radius: 12px; background: var(--sheet); padding: 22px 22px 18px; margin: 18px 0; }
+.cert > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 8px; }
+.cert > header h3 { margin: 0; font: 600 1.35rem/1.3 var(--serif); }
+.cert-id { font: 600 0.8rem var(--mono); letter-spacing: .04em; color: var(--sheet); background: var(--ink); border-radius: 4px; padding: 2px 8px; }
+.cert-dl { display: grid; grid-template-columns: minmax(8em, max-content) minmax(0, 1fr); gap: 0 18px; margin: 14px 0 0; border-top: 1px solid var(--rule); }
+.cert-dl dt, .cert-dl dd { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.cert-dl dt { color: var(--muted); font-size: 0.88rem; }
+.cert-dl dd { overflow-wrap: anywhere; }
+.cert-src { display: block; }
+.cert .hash { display: block; font: 0.74rem var(--mono); color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .cert { padding: 16px 14px; }
+  .cert-dl { grid-template-columns: 1fr; }
+  .cert-dl dt { border-bottom: 0; padding-bottom: 0; }
+  .crumb { flex-wrap: wrap; }
+  .crumb .wiki { margin-left: 0; width: 100%; }
+}
+.cert .chk { color: var(--verified); font-size: 0.82rem; }
+.cert .path { color: var(--muted); }

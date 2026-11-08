@@ -1,0 +1,69 @@
+name: Register an algorithm · 알고리즘 등록
+description: Register an algorithm you designed and get a CISS registration certificate. 직접 만든 알고리즘을 등록하고 CISS 등록 인증서를 받습니다.
+title: "[Register] "
+labels: ["ciss:register"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Your GitHub account is your identity: the certificate records **who** (this account), **when** (the time this issue is opened) and **what** (the code commit and documents below).
+        After you submit, the CISS bot checks the sources, the code and your access to the repository and comments the results. A maintainer then approves it.
+        A certificate records the registration; it does not judge novelty or patentability.
+
+        GitHub 계정이 곧 신원입니다. 인증서에는 **누가**(이 계정), **언제**(이 이슈를 연 시각), **무엇을**(아래 코드 커밋과 문서) 등록했는지가 기록됩니다. 제출하면 봇이 출처·코드·저장소 권한을 검사해 댓글로 알려 주고, 관리자가 승인합니다. 인증서는 등록 사실을 기록할 뿐 독창성이나 특허성을 판정하지 않습니다.
+  - type: input
+    id: name
+    attributes:
+      label: Algorithm name
+      description: The name you want listed (English or the name you use). 등록할 이름.
+    validations: { required: true }
+  - type: input
+    id: slug
+    attributes:
+      label: Short id (slug)
+      description: "Optional. Lowercase letters, digits and hyphens, e.g. my-fast-sort. Leave empty to derive it from the name."
+  - type: dropdown
+    id: field
+    attributes:
+      label: Field
+      options: [sorting, searching, structures, graph, strings, compression, cryptography, ml, numerical, geometry, graphics, systems]
+    validations: { required: true }
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What the algorithm does and what is new about it (40–2000 characters, any language). 알고리즘이 하는 일과 새로운 점.
+    validations: { required: true }
+  - type: textarea
+    id: authors
+    attributes:
+      label: Designers
+      description: One name per line, as you want them credited. 설계자 이름(한 줄에 한 명).
+    validations: { required: true }
+  - type: textarea
+    id: sources
+    attributes:
+      label: Papers and documents
+      description: "One per line: DOI (10.xxxx/...), arXiv id (2401.01234) or URL of a paper, preprint, report or design document. 논문·프리프린트·문서 링크."
+  - type: input
+    id: code
+    attributes:
+      label: Reference implementation
+      description: "github.com URL of the repository, a tree or a file (https://github.com/owner/repo/blob/main/src/algo.py). The bot pins it to a commit and records the file's SHA-256. 기준 구현 주소."
+  - type: textarea
+    id: parents
+    attributes:
+      label: Derived from
+      description: "Optional. Existing CISS algorithms it builds on, one per line as `slug: type: note` (type = variant, optimization, generalization, composition, port), e.g. `dijkstra: optimization: uses a radix heap`."
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: Optional. License of the reference implementation, e.g. MIT.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Declaration
+      options:
+        - label: I am one of the designers (or I am submitting on their behalf with permission), the information is accurate, and I agree that the registration record is published under CC BY 4.0. 본인이 설계자이거나 허락을 받아 제출하며, 내용이 사실이고 등록 기록이 CC BY 4.0으로 공개되는 데 동의합니다.
+          required: true

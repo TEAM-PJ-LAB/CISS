@@ -1,3 +1,4 @@
+import { REGISTRATIONS } from './registrations';
 import type { Registry } from './registry';
 
 /** shields 스타일 2단 배지. 폭은 Verdana 11px 근사 폭으로 계산. */
@@ -32,6 +33,10 @@ export function badgeFor(r: Registry, kind: string, slug: string): string | null
     const who = first?.authors.length ? `${r.author.get(first.authors[0])!.name.split(' ').pop()}${first.authors.length > 1 ? ' et al.' : ''} ` : '';
     const y = r.yearOf(slug);
     return badgeSvg('CISS credited', `${a.name} — ${who}${y == null ? '' : y < 0 ? `${-y} BCE` : y}`.trim());
+  }
+  if (kind === 'registration') {
+    const g = REGISTRATIONS.find((x) => x.id === slug);
+    return g ? badgeSvg('CISS registered', `${g.id} · ${g.name}`, '#7a3fc4') : null;
   }
   if (kind === 'author' && r.authorCredit.has(slug)) {
     const ac = r.authorCredit.get(slug)!;

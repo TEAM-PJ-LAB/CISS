@@ -51,7 +51,8 @@ export function Citation({ x, a, i, o: raw }: { x: Ctx; a: Algorithm; i: number;
       <span className="who"><Authors x={x} slugs={o.authors} /></span>{' '}
       ({formatYear(x.t, o.year)}). <span className="ttl">{o.title}</span>. {o.venue}.
       <span className="ids">
-        {o.id ? <a href={sourceHref(o.id)} target="_blank" rel="noopener noreferrer">{sourceText(o.id)}</a> : x.t('cite.noId')}
+        {o.id ? <a href={sourceHref(o.id)} target="_blank" rel="noopener noreferrer">{sourceText(o.id)}</a>
+          : <>{x.t('cite.noId')} · <a href={`https://scholar.google.com/scholar?q=${encodeURIComponent(`"${/[가-힣]/.test(raw.title) ? o.title : raw.title}"`)}`} target="_blank" rel="noopener noreferrer">{x.t('cite.search')}</a></>}
         {check?.status === 'ok' && <span className="chk" title={check.title}> {x.t('cite.checked', { via: check.via, date: check.checked })}</span>}
         {o.note && <span className="note">{o.note}</span>}
       </span>

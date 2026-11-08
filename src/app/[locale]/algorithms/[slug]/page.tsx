@@ -12,7 +12,7 @@ import { ctx, pct, type Ctx } from '@/lib/ctx';
 import { toGraph } from '@/lib/graph';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
-import { badgePath, withBase } from '@/lib/runtime';
+import { badgePath, wikiLinks, withBase } from '@/lib/runtime';
 import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -61,11 +61,13 @@ export default async function AlgorithmPage({ params }: Props) {
   const badge = `[![CISS credited](${SITE_URL}${badgePath('algorithm', slug)})](${SITE_URL}/${locale}/algorithms/${slug})`;
   const local = c.local(a);
   const names = [local !== a.name ? local : undefined, ...(a.aka ?? [])].filter(Boolean);
+  const wiki = wikiLinks(`src/data/algorithms/${a.field}.ts`);
 
   return (
     <div className="wrap page record">
       <article>
-        <p className="crumb"><Link href={href('/algorithms')}>{t('nav.algorithms')}</Link><span aria-hidden>/</span><FieldTag x={x} field={a.field} link /></p>
+        <p className="crumb"><Link href={href('/algorithms')}>{t('nav.algorithms')}</Link><span aria-hidden>/</span><FieldTag x={x} field={a.field} link />
+          <span className="wiki"><a href={wiki.edit} target="_blank" rel="noopener noreferrer">{t('wiki.edit')}</a><a href={wiki.history} target="_blank" rel="noopener noreferrer">{t('wiki.history')}</a></span></p>
         <h1 className="display">{a.name}</h1>
         <p className="aka">{names.join(', ')}{names.length > 0 && <span aria-hidden> — </span>}<span className="yr">{formatYear(t, r.yearOf(slug))}</span></p>
         <p className="lede measure">{c.summary(a)}</p>
