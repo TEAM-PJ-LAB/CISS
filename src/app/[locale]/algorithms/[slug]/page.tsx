@@ -25,6 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return a ? pageMeta(locale, `/algorithms/${slug}`, a.name, content(locale).summary(a)) : {};
 }
 
+/** 저장된 기록 밖의 구현·문헌은 검색 링크로 잇는다(저장하지 않으므로 용량·정확성 부담이 없다). */
+const findLinks = (name: string): [string, string][] => {
+  const q = encodeURIComponent(name), qq = encodeURIComponent(`"${name}"`);
+  return [['GitHub', `https://github.com/search?q=${qq}&type=code`], ['Semantic Scholar', `https://www.semanticscholar.org/search?q=${q}`],
+    ['Google Scholar', `https://scholar.google.com/scholar?q=${qq}`], ['arXiv', `https://arxiv.org/search/?query=${q}&searchtype=all`]];
+};
+
 function EdgeRow({ x, e, other }: { x: Ctx; e: Derivation; other: string }) {
   return (
     <div className="edge">
@@ -114,6 +121,9 @@ export default async function AlgorithmPage({ params }: Props) {
               })}
             </ul>
           ) : <Empty>{t('algo.noImpl')} <Link href={href('/scan')}>{t('nav.scan')}</Link></Empty>}
+          <p className="find">{t('algo.find')}:{' '}
+            {findLinks(a.name).map(([label, url], i) => <span key={label}>{i > 0 && ' · '}<a href={url} target="_blank" rel="noopener noreferrer">{label}</a></span>)}
+          </p>
         </Section>
 
         <Section id="claims" title={t('nav.claims')} aside={<Link href={href(`/claims?target=algorithm:${slug}`)}>{t('algo.requestFix')}</Link>}>

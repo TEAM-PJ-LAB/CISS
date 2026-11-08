@@ -413,3 +413,4 @@ html[lang='ja'] .cite .ttl, html[lang='zh-Hans'] .cite .ttl, html[lang='ko'] .ci
 }
 .cert .chk { color: var(--verified); font-size: 0.82rem; }
 .cert .path { color: var(--muted); }
+.find { margin: 14px 0 0; font-size: 0.88rem; color: var(--muted); }

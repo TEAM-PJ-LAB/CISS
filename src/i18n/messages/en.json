@@ -397,5 +397,6 @@
   "register.wikiBody": "Every CISS record can be edited like a wiki. On an algorithm or contributor page, choose Edit on GitHub to open the data file in GitHub’s editor; saving creates a pull request. Once it passes the data and source checks and a maintainer merges it, the change goes live and appears in the edit history.",
   "wiki.edit": "Edit on GitHub",
   "wiki.history": "Edit history",
-  "cite.search": "Search scholarly sources"
+  "cite.search": "Search scholarly sources",
+  "algo.find": "Find more"
 }
