@@ -1,7 +1,7 @@
 import { ALGORITHMS } from '@/data/algorithms';
 import { FIELDS, type Algorithm } from '@/data/types';
 import { content, formatYear, getT } from '@/i18n';
-import { LOCALES, type Locale } from '@/i18n/config';
+import { DEFAULT_LOCALE, LOCALES, type Locale } from '@/i18n/config';
 import type { Registry } from './registry';
 import { norm, searchIndex, type IndexEntry, type SearchIndex } from './search-core';
 
@@ -42,4 +42,4 @@ export function buildSearchIndex(r: Registry, locale: Locale): SearchIndex {
   return idx;
 }
 
-export const search = (r: Registry, query: string, limit = 30, locale: Locale = 'ko') => searchIndex(buildSearchIndex(r, locale), query, limit);
+export const search = (r: Registry, query: string, limit = 30, locale: Locale = DEFAULT_LOCALE) => searchIndex(buildSearchIndex(r, locale), query, limit);

@@ -32,7 +32,7 @@ describe('sitemap', () => {
   it('declares hreflang alternates with an x-default', () => {
     const first = xml.split('</url>')[0];
     for (const l of LOCALES) expect(first).toContain(`hreflang="${l}"`);
-    expect(first).toContain(`hreflang="x-default" href="${SITE}/ko/"`);
+    expect(first).toContain(`hreflang="x-default" href="${SITE}/en/"`);
     expect(xml.startsWith('<?xml')).toBe(true);
   });
 });

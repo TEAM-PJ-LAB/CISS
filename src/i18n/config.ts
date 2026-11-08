@@ -1,6 +1,7 @@
 export const LOCALES = ['ko', 'en', 'ja', 'zh'] as const;
 export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = 'ko';
+/** 글로벌 기본 언어: 언어를 알 수 없는 방문자·x-default·루트 이동 대상. */
+export const DEFAULT_LOCALE: Locale = 'en';
 export const LOCALE_COOKIE = 'ciss-locale';
 export const LOCALE_NAME: Record<Locale, string> = { ko: '한국어', en: 'English', ja: '日本語', zh: '简体中文' };
 export const HTML_LANG: Record<Locale, string> = { ko: 'ko', en: 'en', ja: 'ja', zh: 'zh-Hans' };

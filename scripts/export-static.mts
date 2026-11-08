@@ -5,7 +5,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { getT } from '../src/i18n';
-import { HTML_LANG, LOCALES } from '../src/i18n/config';
+import { DEFAULT_LOCALE, HTML_LANG, LOCALES } from '../src/i18n/config';
 import { algorithmPayload, algorithmsPayload, authorPayload, authorsPayload, graphPayload } from '../src/lib/api';
 import { badgeFor } from '../src/lib/badge';
 import { CSV_TABLES, datasetPayload } from '../src/lib/dataset';
@@ -51,7 +51,7 @@ put('sitemap.xml', sitemapXml(SITE_URL, paths, LOCALES));
 const base = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
 const esc = (x: string) => x.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`);
 const nf = Object.fromEntries(LOCALES.map((l) => { const t = getT(l); return [l, { lang: HTML_LANG[l], title: t('notFound.title'), body: t('notFound.body'), cta: t('notFound.cta') }]; }));
-put('404.html', `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+put('404.html', `<!doctype html><html lang="${nf[DEFAULT_LOCALE].lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>404 · CISS</title><style>
 :root{--paper:#eceff4;--ink:#0f1a33;--muted:#5a6479;--accent:#1d3fc4;--rule:#d5dae4}
 @media (prefers-color-scheme:dark){:root{--paper:#0a1022;--ink:#e7ebf3;--muted:#9ba5bc;--accent:#8fa7ff;--rule:#222c46}}
@@ -59,7 +59,7 @@ body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--
 main{max-width:560px;padding:32px 16px}b{font:600 13px/1 ui-monospace,monospace;letter-spacing:.12em;color:var(--muted)}
 h1{font:600 clamp(28px,5vw,40px)/1.2 Georgia,"Noto Serif KR",serif;margin:12px 0 8px}p{color:var(--muted);margin:0 0 24px}
 a{display:inline-block;padding:10px 18px;border:1px solid var(--rule);border-radius:999px;color:var(--accent);text-decoration:none}a:hover{border-color:var(--accent)}
-</style></head><body><main><b>404 · CISS</b><h1 id="t">${esc(nf.ko.title)}</h1><p id="b">${esc(nf.ko.body)}</p><a id="a" href="${base}/ko/algorithms/">${esc(nf.ko.cta)}</a></main>
-<script>(function(){var M=${JSON.stringify(nf)},B=${JSON.stringify(base)},p=location.pathname.slice(B.length).split('/')[1],l=M[p]?p:((navigator.language||'').slice(0,2) in M?(navigator.language||'').slice(0,2):'ko'),m=M[l];
+</style></head><body><main><b>404 · CISS</b><h1 id="t">${esc(nf[DEFAULT_LOCALE].title)}</h1><p id="b">${esc(nf[DEFAULT_LOCALE].body)}</p><a id="a" href="${base}/${DEFAULT_LOCALE}/algorithms/">${esc(nf[DEFAULT_LOCALE].cta)}</a></main>
+<script>(function(){var M=${JSON.stringify(nf)},B=${JSON.stringify(base)},p=location.pathname.slice(B.length).split('/')[1],l=M[p]?p:((navigator.language||'').slice(0,2) in M?(navigator.language||'').slice(0,2):${JSON.stringify(DEFAULT_LOCALE)}),m=M[l];
 document.documentElement.lang=m.lang;document.getElementById('t').textContent=m.title;document.getElementById('b').textContent=m.body;var a=document.getElementById('a');a.textContent=m.cta;a.href=B+'/'+l+'/algorithms/'})()</script></body></html>`);
 console.log(`export-static: ${n} files -> ${root}/`);

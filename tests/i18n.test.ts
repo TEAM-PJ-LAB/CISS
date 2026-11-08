@@ -69,8 +69,8 @@ describe('locale helpers', () => {
     expect(negotiate('ja-JP,ja;q=0.9,en;q=0.8')).toBe('ja');
     expect(negotiate('fr-FR,zh-CN;q=0.7,en;q=0.5')).toBe('zh');
     expect(negotiate('en;q=0.4,ko;q=0.9')).toBe('ko');
-    expect(negotiate('de')).toBe('ko');
-    expect(negotiate(null)).toBe('ko');
+    expect(negotiate('de')).toBe('en');
+    expect(negotiate(null)).toBe('en');
   });
   it('formats BCE years per locale', () => {
     expect(LOCALES.map((l) => formatYear(getT(l), -300))).toEqual(['기원전 300년', '300 BCE', '紀元前300年', '公元前300年']);
