@@ -60,7 +60,12 @@ Docker로는 `docker build -t ciss . && docker run -p 3000:3000 -v ciss-data:/da
 
 `main`에 푸시하면 `.github/workflows/pages.yml`이 테스트를 돌린 뒤 `npm run build:static`으로 정적 사이트를 만들어 Pages에 올립니다. 저장소 **Settings → Pages → Source**를 **GitHub Actions**로 한 번 지정해야 합니다.
 
-GitHub Pages는 게시 사이트를 1GB로 제한합니다. 그래서 알고리즘·기여자 상세 페이지는 RSC 페이로드(`index.txt`) 없이 내보내고, 그 페이지로의 이동은 일반 페이지 로드로 처리합니다(`src/lib/nav.ts`, `src/components/AppLink.tsx`). 현재 결과물은 약 625MB입니다.
+GitHub Pages는 게시 사이트를 1GB로 제한합니다. 그래서 이렇게 내보냅니다.
+
+- 알고리즘·기여자 상세 페이지는 RSC 페이로드(`index.txt`) 없이 내보내고, 그 페이지로의 이동은 일반 페이지 로드로 처리합니다(`src/lib/nav.ts`, `src/components/AppLink.tsx`).
+- 기여자 페이지는 알고리즘 2개 이상이거나 점수 상위 600명만 미리 만듭니다(`src/lib/featured.ts`). 나머지는 공용 페이지 `/authors/view/?a=<slug>`가 `data/author-pages/<slug>.json`으로 그리고, 옛 주소는 404 페이지가 그쪽으로 넘겨 줍니다.
+
+현재 결과물은 약 430MB입니다.
 
 정적 배포판은 서버 없이 같은 기능을 이렇게 제공합니다.
 
