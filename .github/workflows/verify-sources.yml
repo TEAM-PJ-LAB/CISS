@@ -1,0 +1,40 @@
+name: Verify sources
+
+# 시드 DB의 DOI·arXiv를 Crossref·arXiv API와 대조해 src/data/source-checks.json을 갱신한다.
+# 데이터 추가 브랜치(ciss-bot/**)에 푸시하면 자동 실행되고, 결과를 같은 브랜치에 커밋한다.
+on:
+  push:
+    branches: ['ciss-bot/**']
+    paths: ['src/data/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verify-sources-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - id: v
+        run: npm run verify:sources -- --sources-only 2>&1 | tee verify.log; echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Commit source checks
+        run: |
+          if git diff --quiet src/data/source-checks.json; then echo "no changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/source-checks.json
+          git commit -m "Update source checks (Crossref, arXiv)"
+          git push
+      - if: steps.v.outputs.status != '0'
+        run: |
+          grep '✗' verify.log || true
+          exit 1
