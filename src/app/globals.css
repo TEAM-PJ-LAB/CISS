@@ -128,11 +128,11 @@ a.ftag:hover { color: var(--ink); text-decoration: none; }
 /* ---------- sections ---------- */
 .sect { margin-top: 64px; }
 .sect > header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
-.sect > header h2 { font: 600 1.5rem/1.25 var(--serif); letter-spacing: -0.015em; }
+.sect > header h2 { font: 600 1.5rem/1.25 var(--serif); letter-spacing: -0.015em; overflow-wrap: normal; }
 .sect > header .aside { color: var(--muted); font-size: 0.875rem; text-align: right; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
 .two.wide-left { grid-template-columns: 1.35fr 1fr; }
-@media (max-width: 900px) { .two, .two.wide-left { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 900px) { .two, .two.wide-left { grid-template-columns: minmax(0, 1fr); gap: 0; } }
 
 /* ---------- lists & tables ---------- */
 .rows { list-style: none; margin: 0; padding: 0; }
@@ -195,7 +195,7 @@ html[lang='en'] .atlas h1 { max-width: 15ch; }
 .atlas-chart { margin: 0; border: 1px solid var(--rule-strong); border-radius: 14px; background: rgb(8 13 30 / .55); box-shadow: 0 40px 80px -40px rgb(0 0 0 / .8), inset 0 1px 0 rgb(255 255 255 / .06); overflow: hidden; }
 .atlas-chart figcaption { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 12px 16px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--faint); }
 .atlas-chart .graph .react-flow__background { display: none; }
-@media (max-width: 960px) { .atlas-grid { grid-template-columns: 1fr; padding-top: 48px; } .atlas-facts { grid-template-columns: repeat(2, auto); } }
+@media (max-width: 960px) { .atlas-grid { grid-template-columns: minmax(0, 1fr); padding-top: 48px; } .atlas-facts { grid-template-columns: repeat(2, auto); } }
 
 .legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 30px 0 22px; border-bottom: 1px solid var(--rule); }
 .legend p { font-size: 0.86rem; color: var(--muted); margin-top: 6px; }
@@ -212,7 +212,7 @@ html[lang='en'] .atlas h1 { max-width: 15ch; }
 
 /* ---------- record (algorithm / author) ---------- */
 .record { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; }
-@media (max-width: 1000px) { .record { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 1000px) { .record { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 .side { align-self: start; position: sticky; top: 96px; padding-top: 72px; }
 @media (max-width: 1000px) { .side { position: static; padding-top: 0; } }
 .side-l { font-size: 0.8rem; color: var(--muted); }
@@ -224,6 +224,8 @@ html[lang='en'] .atlas h1 { max-width: 15ch; }
 .side dd { text-align: right; font: 600 1rem var(--serif); font-variant-numeric: tabular-nums; }
 .badge-box { margin-top: 32px; }
 .badge-img { display: block; margin: 10px 0 12px; }
+/* 긴 이름의 README 배지(예: FFT)가 칸을 넘어 가로 스크롤을 만들지 않게 줄인다. */
+img { max-width: 100%; height: auto; }
 .snippet-h { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
 .snippet pre { margin: 0; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--r); padding: 12px 14px; font-size: 0.76rem; line-height: 1.55; white-space: pre-wrap; word-break: break-all; }
 .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--link); cursor: pointer; }
