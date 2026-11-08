@@ -12,6 +12,14 @@ export function I18nProvider({ locale, messages, children }: { locale: Locale; m
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
+/** 페이지 전용 네임스페이스를 상위 사전에 더한다. */
+export function I18nExtend({ messages, children }: { messages: Partial<Messages>; children: ReactNode }) {
+  const parent = useContext(Ctx);
+  if (!parent) throw new Error('I18nProvider missing');
+  const value = useMemo(() => ({ locale: parent.locale, m: { ...parent.m, ...messages } as Messages }), [parent, messages]);
+  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+}
+
 export function useI18n() {
   const ctx = useContext(Ctx);
   if (!ctx) throw new Error('I18nProvider missing');

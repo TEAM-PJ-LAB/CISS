@@ -76,3 +76,28 @@ describe('locale helpers', () => {
     expect(Object.fromEntries(LOCALES.map((l) => [l, formatYear(getT(l), -300)]))).toEqual({ ko: '기원전 300년', en: '300 BCE', ja: '紀元前300年', zh: '公元前300年' });
   });
 });
+
+describe('page-scoped client messages', () => {
+  it('keeps page-only namespaces out of the shared layout dictionary', async () => {
+    const { clientMessages, pageMessages, PAGE_NS } = await import('@/i18n');
+    const base = Object.keys(clientMessages('en'));
+    expect(base.some((k) => PAGE_NS.some((n) => k.startsWith(`${n}.`)))).toBe(false);
+    expect(Object.keys(pageMessages('en', ['scan'])).length).toBeGreaterThan(10);
+  });
+  it('components that use page-only namespaces are mounted only under I18nExtend', () => {
+    const uses = (f: string) => /t\(\s*['`](admin|claimForm|scan)\./.test(readFileSync(f, 'utf8'));
+    const files = walk('src/components').filter((f) => f.endsWith('.tsx'));
+    const name = (f: string) => f.split('/').pop()!.replace('.tsx', '');
+    const comps = files.filter(uses).map(name);
+    for (let grew = true; grew;) { // 그 컴포넌트를 렌더하는 컴포넌트도 포함
+      const more = files.filter((f) => !comps.includes(name(f)) && comps.some((c) => new RegExp(`import ${c}\\b`).test(readFileSync(f, 'utf8')))).map(name);
+      comps.push(...more); grew = more.length > 0;
+    }
+    expect(comps).toContain('ClaimsBoard');
+    const pages = walk('src/app').filter((f) => f.endsWith('page.tsx')).map((f) => readFileSync(f, 'utf8'));
+    for (const c of comps) {
+      for (const p of pages.filter((s) => new RegExp(`import ${c}\\b`).test(s))) expect(p, c).toContain('I18nExtend');
+    }
+    expect(comps.length).toBeGreaterThan(0);
+  });
+});

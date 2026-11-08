@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import ClaimsBoard from '@/components/ClaimsBoard';
 import type { TargetOptions } from '@/components/ClaimForm';
-import { getT } from '@/i18n';
+import { getT, pageMessages } from '@/i18n';
+import { I18nExtend } from '@/i18n/client';
 import type { Locale } from '@/i18n/config';
 import { ctx } from '@/lib/ctx';
 import { pageMeta } from '@/lib/meta';
@@ -15,7 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Claims({ params }: Props) {
-  const { r, t } = ctx((await params).locale);
+  const { locale } = await params;
+  const { r, t } = ctx(locale);
   const byName = <T extends { label: string }>(xs: T[]) => xs.sort((a, b) => a.label.localeCompare(b.label));
   const options: TargetOptions = {
     algorithm: byName(r.algorithms.map((a) => ({ value: `algorithm:${a.slug}`, label: a.name }))),
@@ -26,7 +28,7 @@ export default async function Claims({ params }: Props) {
     <div className="wrap page">
       <h1 className="display">{t('nav.claims')}</h1>
       <p className="lede">{t('claims.lede')}</p>
-      <ClaimsBoard options={options} />
+      <I18nExtend messages={pageMessages(locale, ['claimForm', 'admin'])}><ClaimsBoard options={options} /></I18nExtend>
     </div>
   );
 }

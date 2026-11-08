@@ -22,11 +22,16 @@ export const messages = (locale: Locale): Messages => MESSAGES[locale];
 /** 클라이언트 컴포넌트가 쓰는 네임스페이스. 페이지마다 RSC 페이로드에 실리므로 필요한 것만 보낸다(tests/i18n.test.ts가 누락을 검사). */
 export const CLIENT_NS = ['admin', 'algorithms', 'author.unknown', 'authors', 'brand', 'claim', 'claimForm', 'claims', 'common', 'copy', 'field', 'graph', 'lang', 'nav', 'notFound', 'rankings', 'scan', 'search', 'theme', 'year'];
 export const isClientKey = (k: string) => CLIENT_NS.some((ns) => k === ns || k.startsWith(`${ns}.`));
+/** 한두 페이지에서만 쓰는 네임스페이스는 레이아웃이 아니라 그 페이지가 I18nExtend로 싣는다(정적 사이트 용량 절약). */
+export const PAGE_NS = ['admin', 'claimForm', 'scan'] as const;
+const inNs = (k: string, ns: readonly string[]) => ns.some((n) => k === n || k.startsWith(`${n}.`));
 const CLIENT = new Map<Locale, Messages>();
 export function clientMessages(locale: Locale): Messages {
-  if (!CLIENT.has(locale)) CLIENT.set(locale, Object.fromEntries(Object.entries(MESSAGES[locale]).filter(([k]) => isClientKey(k))) as Messages);
+  if (!CLIENT.has(locale)) CLIENT.set(locale, Object.fromEntries(Object.entries(MESSAGES[locale]).filter(([k]) => isClientKey(k) && !inNs(k, PAGE_NS))) as Messages);
   return CLIENT.get(locale)!;
 }
+export const pageMessages = (locale: Locale, ns: readonly (typeof PAGE_NS)[number][]) =>
+  Object.fromEntries(Object.entries(MESSAGES[locale]).filter(([k]) => inNs(k, ns))) as Partial<Messages>;
 
 export function getT(locale: Locale): T {
   const m = MESSAGES[locale];

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ScanForm from '@/components/ScanForm';
-import { getT } from '@/i18n';
+import { getT, pageMessages } from '@/i18n';
+import { I18nExtend } from '@/i18n/client';
 import type { Locale } from '@/i18n/config';
 import { pageMeta } from '@/lib/meta';
 import { WEIGHT } from '@/lib/scan/detect';
@@ -14,12 +15,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ScanPage({ params }: Props) {
-  const t = getT((await params).locale);
+  const { locale } = await params;
+  const t = getT(locale);
   return (
     <div className="wrap page narrow">
       <h1 className="display">{t('nav.scan')}</h1>
       <p className="lede">{t('scan.lede')}</p>
-      <ScanForm />
+      <I18nExtend messages={pageMessages(locale, ['scan'])}><ScanForm /></I18nExtend>
       <section className="sect">
         <header><h2>{t('scan.howTitle')}</h2></header>
         <ul className="method">
