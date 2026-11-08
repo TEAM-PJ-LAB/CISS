@@ -4,9 +4,8 @@ import { BASE_PATH } from '@/lib/runtime';
 
 export const metadata: Metadata = { title: 'CISS', robots: { index: false } };
 
-const js = `(function(){var L=${JSON.stringify(LOCALES)},m=document.cookie.match(/(?:^|; )${LOCALE_COOKIE}=([a-z]{2})/),c=m&&m[1],`
-  + `n=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()}).filter(function(x){return L.indexOf(x)>=0})[0];`
-  + `location.replace(${JSON.stringify(BASE_PATH)}+'/'+(L.indexOf(c)>=0?c:n||${JSON.stringify(DEFAULT_LOCALE)})+'/'+location.search+location.hash)})()`;
+const js = `(function(){var L=${JSON.stringify(LOCALES)},m=document.cookie.match(/(?:^|; )${LOCALE_COOKIE}=([a-z]{2})/),c=m&&m[1];`
+    + `location.replace(${JSON.stringify(BASE_PATH)}+'/'+(L.indexOf(c)>=0?c:${JSON.stringify(DEFAULT_LOCALE)})+'/'+location.search+location.hash)})()`;
 
 export default function Root() {
   return (

@@ -1,6 +1,7 @@
-export const LOCALES = ['ko', 'en', 'ja', 'zh'] as const;
+/** 언어 메뉴 순서. 영어가 기본이라 맨 앞. */
+export const LOCALES = ['en', 'ko', 'ja', 'zh'] as const;
 export type Locale = (typeof LOCALES)[number];
-/** 글로벌 기본 언어: 언어를 알 수 없는 방문자·x-default·루트 이동 대상. */
+/** 글로벌 기본 언어. 언어 메뉴에서 직접 고른 언어(쿠키)가 없으면 브라우저 언어와 상관없이 이 언어로 연다. x-default도 이 언어. */
 export const DEFAULT_LOCALE: Locale = 'en';
 export const LOCALE_COOKIE = 'ciss-locale';
 export const LOCALE_NAME: Record<Locale, string> = { ko: '한국어', en: 'English', ja: '日本語', zh: '简体中文' };

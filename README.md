@@ -19,7 +19,7 @@
 | P2 | npm·PyPI 패키지 → 저장소 해석 후 분석 | `src/lib/scan/sources.ts` |
 | P2 | 게임·앱 코드 추적: Unity, Godot, Unreal, three.js, 셰이더, 그래픽스 알고리즘 22종 | `src/lib/scan/signatures.ts`, `graphics` 분야 |
 
-다국어는 한국어, English, 日本語, 简体中文을 지원합니다. URL은 `/ko`, `/en`, `/ja`, `/zh` 형식이며, 쿠키 설정이나 브라우저 Accept-Language로 언어를 자동 선택합니다. UI 문구 외에 알고리즘 정의, 근거 문장, 서지 메모까지 번역되어 있습니다.
+다국어는 English, 한국어, 日本語, 简体中文을 지원합니다. URL은 `/en`, `/ko`, `/ja`, `/zh` 형식이며, 기본 언어는 영어입니다. 언어 메뉴에서 고른 언어는 쿠키로 기억하고, 고른 적이 없으면 브라우저 언어와 상관없이 영어로 엽니다. UI 문구 외에 알고리즘 정의, 근거 문장, 서지 메모까지 번역되어 있습니다.
 
 ## 시드 데이터 (Phase 0)
 
