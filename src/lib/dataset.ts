@@ -1,4 +1,5 @@
 import { SCORE, type Registry } from './registry';
+import { SITE_URL } from './site';
 
 const SCHEMA = 'ciss-lineage/1';
 const csv = (rows: (string | number | null | undefined)[][]) =>
@@ -16,7 +17,13 @@ export const CSV_TABLES: Record<string, (r: Registry) => string> = {
   implementations: (r) => csv([['algorithm', 'repo', 'path', 'symbol', 'lang'], ...r.implementations.map((i) => [i.algo, i.repo, i.path, i.symbol, i.lang])]),
 };
 
+/** 데이터셋 라이선스. 코드(AGPL-3.0)와 별개. */
+export const DATA_LICENSE = {
+  data: 'CC-BY-4.0', url: 'https://creativecommons.org/licenses/by/4.0/',
+  attribution: `CISS (Team PJ), ${SITE_URL}`, code: 'AGPL-3.0-only',
+} as const;
+
 export const datasetPayload = (r: Registry) => ({
-  schema: SCHEMA, generatedAt: new Date().toISOString(), score: SCORE, stats: r.stats(),
+  schema: SCHEMA, generatedAt: new Date().toISOString(), license: DATA_LICENSE, score: SCORE, stats: r.stats(),
   algorithms: r.algorithms, authors: r.authors, derivations: r.derivations, implementations: r.implementations, sourceChecks: r.checks,
 });

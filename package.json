@@ -1,6 +1,7 @@
 {
   "name": "ciss",
   "version": "0.1.0",
+  "license": "AGPL-3.0-only",
   "private": true,
   "description": "CISS — Code Information Sharing Service: algorithm origin & lineage credit registry",
   "engines": {

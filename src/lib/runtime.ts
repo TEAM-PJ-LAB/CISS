@@ -5,6 +5,8 @@ export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 export const withBase = (p: string) => `${BASE_PATH}${p}`;
 /** 정적 모드의 Claim 저장소 (GitHub Issues). */
 export const ISSUES_REPO = process.env.NEXT_PUBLIC_ISSUES_REPO ?? 'TEAM-PJ-LAB/CISS';
+/** 소스 코드 저장소 (AGPL §13: 이용자에게 소스 위치를 알린다). */
+export const REPO_URL = 'https://github.com/TEAM-PJ-LAB/CISS';
 
 export const badgePath = (kind: 'algorithm' | 'author', slug: string) =>
   STATIC ? `/badge/${kind}/${slug}.svg` : `/api/badge/${kind}/${slug}`;

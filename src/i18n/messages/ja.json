@@ -19,6 +19,8 @@
   "theme.dark": "ダークテーマ",
   "footer.stats": "アルゴリズム{a}件、貢献者{b}名、派生関係{c}件（うち{p}%は根拠により検証済み）を記録しています。",
   "footer.disclaimer": "CISSは起源を記録するサービスであり、盗用や法的紛争について判断するものではありません。",
+  "footer.license.code": "コード: AGPL-3.0",
+  "footer.license.data": "データ: CC BY 4.0",
   "notFound.title": "お探しの記録が見つかりません",
   "notFound.body": "URLが変更されたか、まだ登録されていない記録です。アルゴリズム一覧から探し直してください。",
   "notFound.cta": "アルゴリズム一覧を見る",
@@ -340,5 +342,6 @@
   "dev.sf.search": "ブラウザ内検索用のロケール別インデックス（ko、en、ja、zh）。",
   "dev.sf.csv": "テーブル単位の CSV：algorithms、origins、derivations、authors、implementations。",
   "dev.sf.badge": "README 用 SVG バッジ。/badge/author/{slug}.svg もあります。",
-  "dev.policy.static": "貢献の主張と異議申し立ては GitHub Issue で公開受付するため、連絡先は書かないでください。"
+  "dev.policy.static": "貢献の主張と異議申し立ては GitHub Issue で公開受付するため、連絡先は書かないでください。",
+  "dev.policy.license": "データは CC BY 4.0 で自由に利用できますが、「Data: CISS (Team PJ), {url}, CC BY 4.0」のように出典を明記してください。コードは AGPL-3.0 です。"
 }

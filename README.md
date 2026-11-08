@@ -100,3 +100,10 @@ tests/             vitest
 2. 파생 관계는 `src/data/derivations.ts`에 `d('from>to', type, status, confidence, evidenceKind, text, ref)` 형식으로 추가합니다.
 3. `npm test`를 실행합니다. 시간 역행, 사이클, 고아 저자, 근거 누락, 미번역 키가 있으면 테스트가 실패합니다.
 4. `npm run catalog`로 번역 카탈로그를 뽑고 `src/i18n/content/{en,ja,zh}.json`을 갱신합니다.
+
+## 라이선스
+
+- **코드**: [GNU AGPL v3.0](LICENSE) (`AGPL-3.0-only`). 수정한 코드로 서비스를 운영하면, 그 서비스 사용자에게 수정한 소스 코드를 제공해야 합니다.
+- **데이터**: [CC BY 4.0](LICENSE-DATA). `src/data/`의 기록과 `src/i18n/content/`의 번역, 사이트가 내보내는 `/data/*`·`/badge/*`가 해당합니다. 자유롭게 써도 되지만 출처를 밝혀야 합니다. 예: `Data: CISS (Team PJ), https://team-pj-lab.github.io/CISS/, CC BY 4.0`
+
+Copyright (c) 2026 Team PJ

@@ -19,6 +19,8 @@
   "theme.dark": "深色主题",
   "footer.stats": "目前已记录 {a} 个算法、{b} 位贡献者和 {c} 条派生关系（{p}% 已有证据验证）。",
   "footer.disclaimer": "CISS 是记录算法起源的服务，不对抄袭或法律纠纷作出判定。",
+  "footer.license.code": "代码：AGPL-3.0",
+  "footer.license.data": "数据：CC BY 4.0",
   "notFound.title": "找不到该记录",
   "notFound.body": "该地址可能已变更，或记录尚未收录。请在算法列表中重新查找。",
   "notFound.cta": "查看算法列表",
@@ -340,5 +342,6 @@
   "dev.sf.search": "浏览器内搜索使用的分语言索引（ko、en、ja、zh）。",
   "dev.sf.csv": "按表导出的 CSV：algorithms、origins、derivations、authors、implementations。",
   "dev.sf.badge": "README 用 SVG 徽章。另有 /badge/author/{slug}.svg。",
-  "dev.policy.static": "贡献主张与异议通过 GitHub Issue 公开提交，请勿填写联系方式。"
+  "dev.policy.static": "贡献主张与异议通过 GitHub Issue 公开提交，请勿填写联系方式。",
+  "dev.policy.license": "数据采用 CC BY 4.0，可自由使用，但须注明出处，例如“Data: CISS (Team PJ), {url}, CC BY 4.0”。代码采用 AGPL-3.0。"
 }

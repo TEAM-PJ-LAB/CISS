@@ -106,6 +106,7 @@ export default async function Developers({ params }: Props) {
       <Section title={t('dev.policy')}>
         <ul className="bullets">
           <li>{t('dev.policy.cors')}</li>
+          <li>{t('dev.policy.license', { url: SITE_URL })}</li>
           {STATIC ? <li>{t('dev.policy.static')}</li> : <>
             <li>{t('dev.policy.rate')}</li>
             <li>{t('dev.policy.privacy')}</li>

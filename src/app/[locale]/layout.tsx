@@ -9,6 +9,7 @@ import { HTML_LANG, isLocale, LOCALES, type Locale } from '@/i18n/config';
 import { lp } from '@/i18n/format';
 import { pageMeta } from '@/lib/meta';
 import { registry } from '@/lib/registry';
+import { REPO_URL } from '@/lib/runtime';
 import { SITE_ORIGIN } from '@/lib/site';
 import '../globals.css';
 
@@ -65,12 +66,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
                 <p className="foot-brand">CISS</p>
                 <p>{t('footer.stats', { a: s.algorithms, b: s.authors, c: s.derivations, p: Math.round(s.verifiedRatio * 100) })}</p>
                 <p className="muted">{t('footer.disclaimer')}</p>
+                <p className="muted"><a href={`${REPO_URL}/blob/main/LICENSE`}>{t('footer.license.code')}</a> · <a href={`${REPO_URL}/blob/main/LICENSE-DATA`}>{t('footer.license.data')}</a></p>
               </div>
               <ul>
                 <li><Link href={href('/about')}>{t('nav.about')}</Link></li>
                 <li><Link href={href('/developers')}>{t('nav.developers')}</Link></li>
                 <li><Link href={href('/claims')}>{t('nav.claims')}</Link></li>
-                <li><a href="https://github.com/TEAM-PJ-LAB/CISS">GitHub</a></li>
+                <li><a href={REPO_URL}>GitHub</a></li>
               </ul>
             </div>
           </footer>

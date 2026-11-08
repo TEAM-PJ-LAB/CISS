@@ -19,6 +19,8 @@
   "theme.dark": "Dark theme",
   "footer.stats": "Currently recording {a} algorithms, {b} contributors, and {c} derivations ({p}% verified by evidence).",
   "footer.disclaimer": "CISS records origins. It does not rule on plagiarism or legal disputes.",
+  "footer.license.code": "Code: AGPL-3.0",
+  "footer.license.data": "Data: CC BY 4.0",
   "notFound.title": "Record not found",
   "notFound.body": "The address may have changed, or this record hasn’t been added yet. Try finding it in the algorithm list.",
   "notFound.cta": "Browse algorithms",
@@ -340,5 +342,6 @@
   "dev.sf.search": "Per-locale index used by in-browser search (ko, en, ja, zh).",
   "dev.sf.csv": "Per-table CSV: algorithms, origins, derivations, authors, implementations.",
   "dev.sf.badge": "SVG badge for READMEs. /badge/author/{slug}.svg is also available.",
-  "dev.policy.static": "Claims and disputes are filed publicly as GitHub issues, so do not include contact details."
+  "dev.policy.static": "Claims and disputes are filed publicly as GitHub issues, so do not include contact details.",
+  "dev.policy.license": "The data is CC BY 4.0: use it freely, but credit it, for example “Data: CISS (Team PJ), {url}, CC BY 4.0”. The code is AGPL-3.0."
 }
