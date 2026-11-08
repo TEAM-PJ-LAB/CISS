@@ -89,10 +89,19 @@ async function verifySources() {
   return bad;
 }
 
+/** raw.githubusercontent.com은 짧은 시간에 요청이 몰리면 429를 준다. Retry-After(없으면 2·4·8·16초)만큼 기다려 다시 묻는다. */
+async function rawFetch(url: string) {
+  for (let i = 0; ; i++) {
+    const res = await fetch(url, { headers: UA });
+    if ((res.status !== 429 && res.status < 500) || i === 4) return res;
+    await sleep(1000 * (Number(res.headers.get('retry-after')) || 2 ** (i + 1)));
+  }
+}
+
 async function verifyImplementations() {
   let bad = 0;
   for (const i of IMPLEMENTATIONS.filter((x) => x.path)) {
-    const res = await fetch(`https://raw.githubusercontent.com/${i.repo}/HEAD/${i.path}`);
+    const res = await rawFetch(`https://raw.githubusercontent.com/${i.repo}/HEAD/${i.path}`);
     const ok = res.ok && (!i.symbol || (await res.text()).includes(i.symbol));
     if (!ok) { bad++; console.warn(`✗ ${i.algo} ${i.repo}/${i.path}${i.symbol ? `#${i.symbol}` : ''} (${res.status})`); }
   }
