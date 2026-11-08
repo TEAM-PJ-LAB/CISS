@@ -26,6 +26,10 @@ jobs:
       - run: npm ci
       - id: v
         run: npm run verify:sources -- --sources-only 2>&1 | tee verify.log; echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+        env:
+          VERIFY_DETAILS: verify-details.json
+      - uses: actions/upload-artifact@v4
+        with: { name: verify-details, path: verify-details.json, retention-days: 7 }
       - name: Commit source checks
         run: |
           if git diff --quiet src/data/source-checks.json; then echo "no changes"; exit 0; fi
