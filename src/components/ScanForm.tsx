@@ -76,7 +76,7 @@ export default withQuery(function ScanForm({ q }: { q: URLSearchParams }) {
             {report.source.package && <div><dt>{t('scan.package')}</dt><dd>{report.source.package.kind}:{report.source.package.name}</dd></div>}
             <div><dt>{t('scan.files')}</dt><dd>{report.stats.scanned} / {report.stats.listed}</dd></div>
             <div><dt>{t('scan.found')}</dt><dd>{report.findings.length}</dd></div>
-            <div><dt>{t('scan.when')}</dt><dd><time dateTime={report.scannedAt}>{report.scannedAt.slice(0, 16).replace('T', ' ')}</time>{report.cached && <> · <button type="button" className="linkbtn" onClick={() => run(url, true)}>{t('scan.rescan')}</button></>}</dd></div>
+            <div><dt>{t('scan.when')}</dt><dd><time dateTime={report.scannedAt}>{new Date(report.scannedAt).toLocaleString(locale, { dateStyle: 'medium', timeStyle: 'short' })}</time>{report.cached && <> · <button type="button" className="linkbtn" onClick={() => run(url, true)}>{t('scan.rescan')}</button></>}</dd></div>
           </dl>
           <p className="small muted">{t('scan.disclaimer')}{report.stats.truncated && ` ${t('scan.truncated')}`}</p>
           {report.findings.length === 0 ? <p className="empty">{t('scan.none')}</p> : (

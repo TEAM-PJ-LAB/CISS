@@ -59,7 +59,7 @@ export default async function Developers({ params }: Props) {
               {FILES.map(([path, k]) => (
                 <tr key={path}>
                   <td className="nowrap"><span className="method m-get">GET</span></td>
-                  <td><a href={withBase(path)} target="_blank" rel="noopener noreferrer"><code>{path}</code></a><p className="small muted">{t(k)}</p></td>
+                  <td><a href={withBase(path)} target="_blank" rel="noopener noreferrer"><code>{withBase(path)}</code></a><p className="small muted">{t(k)}</p></td>
                 </tr>
               ))}
             </tbody>
@@ -72,13 +72,13 @@ export default async function Developers({ params }: Props) {
           </div>
         </Section>
       </> : <>
-        <Section title={t('dev.endpoints')} aside={<a href="/api/openapi">OpenAPI 3.1</a>}>
+        <Section title={t('dev.endpoints')} aside={<a href={withBase('/api/openapi')}>OpenAPI 3.1</a>}>
         <table className="tbl api">
           <tbody>
             {ENDPOINTS.map(([m, path, k]) => (
               <tr key={path + m}>
                 <td className="nowrap"><span className={`method m-${m.toLowerCase()}`}>{m}</span></td>
-                <td>{m === 'GET' ? <a href={path} target="_blank" rel="noopener noreferrer"><code>{path}</code></a> : <code>{path}</code>}<p className="small muted">{t(k)}</p></td>
+                <td>{m === 'GET' ? <a href={withBase(path)} target="_blank" rel="noopener noreferrer"><code>{withBase(path)}</code></a> : <code>{withBase(path)}</code>}<p className="small muted">{t(k)}</p></td>
               </tr>
             ))}
           </tbody>

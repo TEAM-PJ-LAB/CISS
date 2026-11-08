@@ -146,7 +146,7 @@ a.ftag:hover { color: var(--ink); text-decoration: none; }
 .bar i { display: block; height: 100%; background: var(--ink); }
 .scroll { overflow-x: auto; margin-top: 8px; }
 .tbl th { text-align: left; font-weight: 500; color: var(--muted); font-size: 0.82rem; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--ink); white-space: nowrap; }
-.tbl td { padding: 13px 14px 13px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.tbl td { padding: 13px 14px 13px 0; border-bottom: 1px solid var(--rule); vertical-align: top; overflow-wrap: normal; }
 .tbl th.num, .tbl td.num { text-align: right; padding-right: 0; padding-left: 14px; }
 .tbl tbody tr { transition: background .12s; }
 .tbl tbody tr:hover { background: color-mix(in srgb, var(--sheet) 70%, transparent); }
@@ -379,6 +379,7 @@ html[lang='ja'] .cite .ttl, html[lang='zh-Hans'] .cite .ttl, html[lang='ko'] .ci
 .phases li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .phases li p { margin-top: 4px !important; color: var(--muted); font-size: 0.92rem; }
 .bullets { margin: 14px 0 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); }
+.tbl.api td { overflow-wrap: anywhere; }
 .tbl.api td:first-child { width: 72px; }
 .m-get, .m-post { display: inline-block; font: 600 0.72rem var(--mono); padding: 2px 8px; border-radius: 4px; }
 .m-get { color: var(--verified); background: color-mix(in srgb, var(--verified) 12%, transparent); }
