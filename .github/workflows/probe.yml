@@ -1,0 +1,7 @@
+name: probe
+on: { push: { branches: ['ciss-bot/probe'] } }
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -s "https://api.crossref.org/works/10.1145/366622.366644" | head -c 200
